@@ -19,7 +19,7 @@ Everything below was produced by the scripts in this repository. Numbers are quo
 | LLM benchmark (30 requests/model) | rules 0.5 ms, 83 %; Qwen2.5-0.5B 9.8 s, 83 %; Qwen2.5-1.5B 29.5 s, 90 % | Cost is an estimate; no hosted API exercised; both Qwen models failed the refund-approval check before the policy floor was added |
 | RAG | cited-source hit 14/15; 11/12 unanswerable probes abstained | Two account-takeover cases missed |
 | Agent | 15/15 tool and approval decisions correct; 0 actions executed | Deterministic planner |
-| Tests | 74 passed in a clean Python 3.13 venv | Hosted CI not yet observed; Docker image not built locally |
+| Tests | 74 passed in a clean Python 3.13 venv | Hosted CI and Docker build+smoke passed on GitHub (run 45193973913) |
 
 ## Repository layout
 
@@ -106,5 +106,5 @@ Prediction is defined at ticket creation (T0), and fields that only exist after 
 * Classification and regression signal is moderate; the model is a triage aid.
 * LLM cost figures are estimates from an assumed compute rate; the hosted-model path (`anthropic` provider) is covered by stub tests only because no key was available.
 * The 20 % partial-refund rule in the agent is an assumed placeholder that needs business confirmation.
-* The Docker image and hosted CI run are verified only after the first push (see `reports/final_report.md`).
+* The Docker image was built and smoke-tested only in hosted CI, not locally.
 * Fairness checks cover the recorded attributes only; small subgroups have wide intervals.

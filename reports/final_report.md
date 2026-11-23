@@ -18,7 +18,7 @@ An end-to-end prototype for a retail-support operation, built from the student p
 | 7 RAG | Section chunking chosen by comparison; calibrated abstention; conflict, injection and secret guards; index metadata | `rag_report.md` | 14/15 cited hits, 11/12 abstentions | 2 account-takeover misses; TF-IDF fallback abstains on 60 % of questions |
 | 8 Agent | Strict tool schemas, one retry, approval gate, traces | `agent_report.md` | 15/15 correct, 0 executed | Deterministic planner only; 20 % partial refund is an assumption |
 | 9 Guardrails/QA | Evaluation suite, subgroup analysis, risk register | `evaluation_and_guardrails.md`, `subgroup_report.md`, `risk_register.md` | 74 tests, clean venv | Limited attributes |
-| 10 Integration/ops | FastAPI, Gradio, Docker, Actions, redacted logs, monitoring summary | `app/`, `deployment/`, `.github/`, `monitoring/` | 47-request workload via the app | Docker and hosted CI unobserved before push |
+| 10 Integration/ops | FastAPI, Gradio, Docker, Actions, redacted logs, monitoring summary | `app/`, `deployment/`, `.github/`, `monitoring/` | 47-request workload via the app | Docker built and smoke-tested in hosted CI |
 | 11 Final | README, runbook, viva notes, this report | – | – | – |
 
 ## 3. Honest findings
@@ -32,7 +32,7 @@ An end-to-end prototype for a retail-support operation, built from the student p
 ## 4. Known limitations
 
 * Synthetic, templated data: ceiling effects in text and vision, and no external validity claims.
-* Docker image not built locally (no daemon); hosted CI not yet observed.
+* Docker image was not built locally (no daemon); it was built and smoke-tested by GitHub Actions.
 * Anthropic provider tested only with a stub client; cost figures are estimates from an assumed hourly rate ($0.34), not an API bill.
 * The rules provider was written while the public prompt cases were visible, so its 100 % on those is optimistic. The 20 real-ticket accuracy (75 %) is the fairer, still indicative, number.
 * Local pickles were produced with scikit-learn 1.8.0; CI pins 1.9.0 (the escalation model loads with a version warning).
@@ -45,4 +45,4 @@ See `README.md` ("Setup", "Verify without the data", "Reproduce the evidence").
 
 ## 6. Release status
 
-The local git history is committed. Publication to a public GitHub repository is deliberately held until the account, repository name and visibility are confirmed by the owner.
+Published at https://github.com/rahulphaltankar/omnisupport-ai (public). Hosted CI (test and docker jobs) passed.
