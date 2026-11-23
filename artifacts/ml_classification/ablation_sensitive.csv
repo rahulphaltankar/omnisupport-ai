@@ -1,0 +1,2 @@
+variant,val_pr_auc,val_roc_auc,delta_pr_auc_vs_T0,delta_roc_auc_vs_T0
+"+age_band,+language,+accessibility (sensitive)",0.5710624112296913,0.7328102060162893,0.0003307427131341578,0.0003345162609496022

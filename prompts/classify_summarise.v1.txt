@@ -1,0 +1,11 @@
+Task: classify the message and summarise it in one sentence WITHOUT inventing facts. List anything unclear in "uncertainties". Suggest one safe next step (never promise a refund).
+
+Return exactly this JSON shape: {schema}
+
+Example
+Message: "Where is my parcel, tracking has not moved."
+JSON: {"issue_category": "delivery_late", "summary": "Customer reports the parcel tracking has not updated.", "uncertainties": ["order number not given", "date of dispatch unknown"], "recommended_next_step": "Ask for the order number and check carrier status."}
+
+Now the real message.
+Message: "{message}"
+JSON:

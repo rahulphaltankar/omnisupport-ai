@@ -1,0 +1,33 @@
+{
+  "accessibility_escalation": {
+    "flag0": 0.3080152198404022,
+    "flag1": 0.35145215698104926,
+    "n_flag1": 36463
+  },
+  "channel_spread": 0.0015085568837225338,
+  "corr_delay_resolution": 0.26906421198691277,
+  "corr_prev_escalated": 0.26831903543427826,
+  "esc_delay0": 0.24752145821437083,
+  "esc_delay_max": 0.4577702702702703,
+  "esc_prev0": 0.16033578301754897,
+  "esc_prev8": 0.7848739495798319,
+  "esc_value_d1": 0.23805507866228928,
+  "esc_value_d10": 0.5201116533124486,
+  "escalation_rate": 0.309605421686747,
+  "extreme_order_value_escalation": 0.464859437751004,
+  "hour_cv": 0.005814186746638558,
+  "issue_extremes": {
+    "highest_escalation": "lost_parcel",
+    "lowest": "refund_status",
+    "lowest_rate": 0.2364741539543529,
+    "rate": 0.643758836598667
+  },
+  "max_resolution_h": 899.34,
+  "median_resolution_h": 23.13,
+  "missing_desc_pct": 0.00997289156626506,
+  "monthly_rate_max": 0.31249539617452793,
+  "monthly_rate_min": 0.3067925907584922,
+  "p99_resolution_h": 54.7,
+  "product_spread_h": 0.6870932893235455,
+  "upper_pct": 0.015002008032128514
+}

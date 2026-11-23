@@ -1,0 +1,223 @@
+{
+  "backend": "dense",
+  "build_seconds": 0.584,
+  "chunking": "section",
+  "documents": {
+    "account_access": {
+      "file": "17_account_access.md",
+      "sha256_12": "fd6463973564",
+      "version": "1.17"
+    },
+    "account_takeover": {
+      "file": "18_account_takeover.md",
+      "sha256_12": "c961aea56501",
+      "version": "1.18"
+    },
+    "agent_escalation": {
+      "file": "26_agent_escalation.md",
+      "sha256_12": "928f24c7e57f",
+      "version": "1.26"
+    },
+    "cancellation": {
+      "file": "13_cancellation.md",
+      "sha256_12": "1bbdda1f998c",
+      "version": "1.13"
+    },
+    "case_notes": {
+      "file": "30_case_notes.md",
+      "sha256_12": "8f02b6a3e710",
+      "version": "1.30"
+    },
+    "chargebacks": {
+      "file": "16_chargebacks.md",
+      "sha256_12": "a316b977fb4b",
+      "version": "1.16"
+    },
+    "chat_tone": {
+      "file": "33_chat_tone.md",
+      "sha256_12": "0de861e866b0",
+      "version": "1.33"
+    },
+    "csat_followup": {
+      "file": "29_csat_followup.md",
+      "sha256_12": "f23dacc2cdeb",
+      "version": "1.29"
+    },
+    "damaged_on_arrival": {
+      "file": "05_damaged_on_arrival.md",
+      "sha256_12": "09a84396db77",
+      "version": "1.05"
+    },
+    "data_privacy": {
+      "file": "19_data_privacy.md",
+      "sha256_12": "1d34a0b5c06b",
+      "version": "1.19"
+    },
+    "delivery_late": {
+      "file": "10_delivery_late.md",
+      "sha256_12": "6620447f979c",
+      "version": "1.10"
+    },
+    "delivery_lost": {
+      "file": "11_delivery_lost.md",
+      "sha256_12": "73ebb42b14dd",
+      "version": "1.11"
+    },
+    "delivery_weather": {
+      "file": "12_delivery_weather.md",
+      "sha256_12": "4c55fdd90a3c",
+      "version": "1.12"
+    },
+    "duplicate_charge": {
+      "file": "15_duplicate_charge.md",
+      "sha256_12": "cae53664fa6f",
+      "version": "1.15"
+    },
+    "human_approval": {
+      "file": "27_human_approval.md",
+      "sha256_12": "cae9de657658",
+      "version": "1.27"
+    },
+    "incident_response": {
+      "file": "39_incident_response.md",
+      "sha256_12": "f24438e76c89",
+      "version": "1.39"
+    },
+    "loyalty_points": {
+      "file": "20_loyalty_points.md",
+      "sha256_12": "26aa9ce865de",
+      "version": "1.20"
+    },
+    "marketplace_returns": {
+      "file": "04_marketplace_returns.md",
+      "sha256_12": "2d8485399790",
+      "version": "1.04"
+    },
+    "monitoring_privacy": {
+      "file": "38_monitoring_privacy.md",
+      "sha256_12": "b6c22e3a63d2",
+      "version": "1.38"
+    },
+    "monitoring_quality": {
+      "file": "37_monitoring_quality.md",
+      "sha256_12": "d3012769e5ae",
+      "version": "1.37"
+    },
+    "partial_refunds": {
+      "file": "08_partial_refunds.md",
+      "sha256_12": "e5dbdb3daa1a",
+      "version": "1.08"
+    },
+    "payment_failed": {
+      "file": "14_payment_failed.md",
+      "sha256_12": "ff0e56bb4132",
+      "version": "1.14"
+    },
+    "policy_versioning": {
+      "file": "40_policy_versioning.md",
+      "sha256_12": "7f1d07bdfaec",
+      "version": "1.40"
+    },
+    "product_information": {
+      "file": "24_product_information.md",
+      "sha256_12": "0052c683a2f9",
+      "version": "1.24"
+    },
+    "rag_citations": {
+      "file": "31_rag_citations.md",
+      "sha256_12": "8d3362024fa5",
+      "version": "1.31"
+    },
+    "rag_conflict": {
+      "file": "32_rag_conflict.md",
+      "sha256_12": "e005e2110333",
+      "version": "1.32"
+    },
+    "refund_limits": {
+      "file": "09_refund_limits.md",
+      "sha256_12": "4bb38b228547",
+      "version": "1.09"
+    },
+    "refund_processing": {
+      "file": "07_refund_processing.md",
+      "sha256_12": "a0bcd55bafe7",
+      "version": "1.07"
+    },
+    "returns_electronics": {
+      "file": "02_returns_electronics.md",
+      "sha256_12": "ea6a14a8424e",
+      "version": "1.02"
+    },
+    "returns_fashion": {
+      "file": "03_returns_fashion.md",
+      "sha256_12": "3c1c6a68c69b",
+      "version": "1.03"
+    },
+    "returns_standard": {
+      "file": "01_returns_standard.md",
+      "sha256_12": "64a34517ffdf",
+      "version": "1.01"
+    },
+    "safety_incident": {
+      "file": "25_safety_incident.md",
+      "sha256_12": "446fc2ec3a7d",
+      "version": "1.25"
+    },
+    "support_priority": {
+      "file": "28_support_priority.md",
+      "sha256_12": "da87d10251ea",
+      "version": "1.28"
+    },
+    "tool_lookup_order": {
+      "file": "34_tool_lookup_order.md",
+      "sha256_12": "79a915002fd9",
+      "version": "1.34"
+    },
+    "tool_refund_calc": {
+      "file": "35_tool_refund_calc.md",
+      "sha256_12": "44c2141a35a4",
+      "version": "1.35"
+    },
+    "tool_return_eligibility": {
+      "file": "36_tool_return_eligibility.md",
+      "sha256_12": "ea932de342a8",
+      "version": "1.36"
+    },
+    "warranty_electronics": {
+      "file": "22_warranty_electronics.md",
+      "sha256_12": "bd5a724344dd",
+      "version": "1.22"
+    },
+    "warranty_general": {
+      "file": "21_warranty_general.md",
+      "sha256_12": "efce39629616",
+      "version": "1.21"
+    },
+    "warranty_home": {
+      "file": "23_warranty_home.md",
+      "sha256_12": "1bec8281ccfb",
+      "version": "1.23"
+    },
+    "wrong_item": {
+      "file": "06_wrong_item.md",
+      "sha256_12": "0860dd135935",
+      "version": "1.06"
+    }
+  },
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "index_version": "policy-index-v1.0.0",
+  "n_chunks": 76,
+  "n_documents": 40,
+  "thresholds": {
+    "dense": {
+      "abstain_below": 0.34,
+      "calibrated_on": "own dev probes (6 answerable / 6 unanswerable), objective = (recall_answerable + 2*specificity_unanswerable)/3",
+      "heldout_weighted_score": 0.889
+    },
+    "tfidf": {
+      "abstain_below": 0.2,
+      "calibrated_on": "same own dev probes",
+      "heldout_weighted_score": 0.667
+    }
+  }
+}

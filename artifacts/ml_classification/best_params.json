@@ -1,0 +1,49 @@
+{
+  "best_params": {
+    "l2_regularization": 0.0,
+    "learning_rate": 0.03,
+    "max_depth": 10,
+    "max_iter": 400,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 100
+  },
+  "cv_pr_auc_default_same_data": 0.5688287373537232,
+  "cv_pr_auc_tuned": 0.572768178953276,
+  "search_space": {
+    "m__l2_regularization": [
+      0.0,
+      0.1,
+      1.0,
+      5.0
+    ],
+    "m__learning_rate": [
+      0.03,
+      0.05,
+      0.08,
+      0.12,
+      0.2
+    ],
+    "m__max_depth": [
+      null,
+      6,
+      10
+    ],
+    "m__max_iter": [
+      150,
+      250,
+      400
+    ],
+    "m__max_leaf_nodes": [
+      15,
+      31,
+      63,
+      127
+    ],
+    "m__min_samples_leaf": [
+      20,
+      50,
+      100,
+      200
+    ]
+  }
+}

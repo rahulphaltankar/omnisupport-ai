@@ -1,0 +1,11 @@
+Task: rewrite the policy text for a customer in plain words. Use ONLY information in the text. claims_supported_by_input must be true only if every claim in your summary appears in the text.
+
+Return exactly this JSON shape: {schema}
+
+Example
+Message: "Returns accepted within 30 days of delivery."
+JSON: {"customer_facing_summary": "You can return items within 30 days of delivery.", "claims_supported_by_input": true}
+
+Now the real message.
+Message: "{message}"
+JSON:

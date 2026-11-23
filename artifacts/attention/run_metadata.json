@@ -1,0 +1,51 @@
+{
+  "config": {
+    "focus_sentence": "I returned the item but no refund is visible.",
+    "model": "distilbert/distilbert-base-uncased",
+    "source_ticket": "TKT000000520"
+  },
+  "duration_s": 5.39,
+  "extra": {
+    "attention_refund_to_no_focus": 0.04425301402807236,
+    "attention_refund_to_no_reorder": 0.04514480382204056,
+    "contextual_vector_dim": 768,
+    "distilbert_token_cosine_item_focus_vs_reorder": 0.984955022341018,
+    "distilbert_token_cosine_refund_focus_vs_reorder": 0.9812887490270927,
+    "manual_vs_model_attention_max_abs_diff_head0": 6.61003357049772e-08,
+    "manual_vs_model_layer0_output_max_abs_diff": 9.5367431640625e-07,
+    "minilm_sentence_cosine_focus_vs_negation": 0.9578189502286609,
+    "minilm_sentence_cosine_focus_vs_reorder": 0.9457872405678016,
+    "tfidf_cosine_focus_vs_negation": 0.6635493598650145,
+    "tfidf_cosine_focus_vs_reorder": 0.999999999999,
+    "tfidf_nonzero_in_focus_sentence": 8,
+    "tfidf_vocab_dim": 856
+  },
+  "git_commit": null,
+  "hardware": {
+    "cpu_count": 12,
+    "gpu": "none (CPU only)",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "libraries": {
+    "faiss": "1.13.2",
+    "fastapi": "0.136.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "pydantic": "2.13.1",
+    "python": "3.14.5",
+    "sklearn": "1.8.0",
+    "torch": "2.11.0+cpu",
+    "torchvision": "0.26.0+cpu",
+    "transformers": "5.5.4"
+  },
+  "limitations": [
+    "Attention weights are not explanations of model decisions; they show information routing in one head/layer.",
+    "DistilBERT uses learned absolute position embeddings, not the sinusoidal ones shown for the toy example."
+  ],
+  "model_version": "distilbert/distilbert-base-uncased",
+  "run": "attention",
+  "seed": 42,
+  "split_method": "n/a (explanatory demonstration)",
+  "started_utc": "2026-11-23T11:41:06+00:00",
+  "status": "completed"
+}

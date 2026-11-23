@@ -1,0 +1,11 @@
+{
+  "patterns": [
+    "Missed escalations concentrate where `prev_bucket`=0 (miss rate 67% of true escalations, n=27,542, base rate 16%)",
+    "Missed escalations concentrate where `prev_bucket`=1 (miss rate 46% of true escalations, n=49,514, base rate 23%)",
+    "Missed escalations concentrate where `issue_title`=Need product information (miss rate 43% of true escalations, n=3,894, base rate 23%)",
+    "False alarms concentrate where `prev_bucket`=5+ (100% of non-escalations flagged, n=5,993)",
+    "False alarms concentrate where `issue_title`=Parcel appears lost (98% of non-escalations flagged, n=2,243)",
+    "False alarms concentrate where `delay_bucket`=11-20 (97% of non-escalations flagged, n=6,490)"
+  ],
+  "threshold": 0.24
+}

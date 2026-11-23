@@ -1,0 +1,11 @@
+Task: assess an account-access message. Put concrete warning signs in risk_flags (e.g. "possible account takeover", "address change not made by customer"). needs_human_review is true when takeover is possible.
+
+Return exactly this JSON shape: {schema}
+
+Example
+Message: "I forgot my password."
+JSON: {"issue_category": "account_access", "risk_flags": [], "needs_human_review": false}
+
+Now the real message.
+Message: "{message}"
+JSON:

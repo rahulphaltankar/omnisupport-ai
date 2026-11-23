@@ -1,0 +1,35 @@
+{
+  "date_range": [
+    "2025-01-01 00:00:00",
+    "2025-12-31 23:59:00"
+  ],
+  "duplicates": {
+    "duplicate_ticket_id_extra": 4000,
+    "duplicates_cross_shard_fraction": 0.0,
+    "exact_duplicate_rows_extra_copies": 4000,
+    "rows": 1000000,
+    "rows_involved_in_exact_duplication": 8000,
+    "unique_tickets": 996000
+  },
+  "primary_rows": 1000000,
+  "primary_shards": 10,
+  "rows_after_cleaning": 996000,
+  "rows_removed": 4000,
+  "supporting_assets_not_counted": [
+    "dataset_preview.csv",
+    "transformer_finetune_10000.parquet",
+    "agent_store/*.csv",
+    "images/"
+  ],
+  "target_balance": {
+    "escalated_rate": 0.3096,
+    "resolution_time_hours_mean": 23.958,
+    "resolution_time_hours_p99": 54.7
+  },
+  "text_noise": {
+    "blank_or_missing_description": 9971,
+    "mostly_uppercase_description": 15006,
+    "unique_titles": 30,
+    "with_noise_footer_(!!!,...,pls,thx,ASAP,#help,mobile)": 866482
+  }
+}

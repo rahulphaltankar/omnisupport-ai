@@ -1,0 +1,58 @@
+{
+  "max_abs_fpr_gap_sensitive": 0.01964954380930245,
+  "max_abs_recall_gap_sensitive": 0.030299448097484527,
+  "overall": {
+    "flag_rate": 0.5551368218915026,
+    "fpr": 0.4574941553381245,
+    "n": 166640,
+    "recall": 0.7756011730205279
+  },
+  "significant_recall_gaps": [
+    {
+      "attribute": "preferred_language",
+      "recall_gap_vs_overall": 0.0303,
+      "value": "Urdu"
+    },
+    {
+      "attribute": "product_category",
+      "recall_gap_vs_overall": 0.0896,
+      "value": "appliances"
+    },
+    {
+      "attribute": "product_category",
+      "recall_gap_vs_overall": -0.0259,
+      "value": "beauty"
+    },
+    {
+      "attribute": "product_category",
+      "recall_gap_vs_overall": 0.0613,
+      "value": "electronics"
+    },
+    {
+      "attribute": "product_category",
+      "recall_gap_vs_overall": -0.0339,
+      "value": "fashion"
+    },
+    {
+      "attribute": "product_category",
+      "recall_gap_vs_overall": -0.0943,
+      "value": "grocery"
+    },
+    {
+      "attribute": "product_category",
+      "recall_gap_vs_overall": -0.0279,
+      "value": "home"
+    },
+    {
+      "attribute": "product_category",
+      "recall_gap_vs_overall": -0.0204,
+      "value": "sports"
+    },
+    {
+      "attribute": "product_category",
+      "recall_gap_vs_overall": -0.0283,
+      "value": "toys"
+    }
+  ],
+  "threshold": 0.24
+}

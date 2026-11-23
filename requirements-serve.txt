@@ -1,0 +1,11 @@
+# Full serving image: CI set + dense retrieval (MiniLM + FAISS), vision model, Gradio UI, optional LLM providers.
+-r requirements-ci.txt
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.13.0
+torchvision==0.28.0
+transformers==5.15.0
+faiss-cpu==1.15.0
+pillow>=11
+gradio==6.24.0
+matplotlib==3.11.1
+anthropic>=0.96

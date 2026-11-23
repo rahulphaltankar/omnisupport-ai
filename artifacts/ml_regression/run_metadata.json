@@ -1,0 +1,71 @@
+{
+  "config": {
+    "cv": "GroupKFold(5) by customer_id on 120k train subsample",
+    "features": [
+      "customer_tenure_months",
+      "order_value",
+      "delivery_delay_days",
+      "previous_ticket_count",
+      "attachment_available",
+      "hour",
+      "dayofweek",
+      "month",
+      "is_weekend",
+      "is_night",
+      "desc_len",
+      "desc_words",
+      "desc_upper_ratio",
+      "desc_exclaim",
+      "desc_missing",
+      "desc_days_mentioned",
+      "desc_urgent_phrase",
+      "desc_mobile_footer",
+      "log_order_value",
+      "delay_x_prev_tickets",
+      "value_x_delay",
+      "tenure_bucket_new",
+      "repeat_contact",
+      "support_channel",
+      "customer_region",
+      "product_category",
+      "issue_title"
+    ],
+    "sla_hours": 36.0,
+    "target": "resolution_time_hours",
+    "tuning": "RandomizedSearchCV n_iter=14 GroupKFold(3) neg_MAE",
+    "winsorise_train_target_at": 0.999
+  },
+  "duration_s": 817.66,
+  "extra": {
+    "test_mae": 3.49152005674494,
+    "test_rmse": 11.376902099495792
+  },
+  "git_commit": null,
+  "hardware": {
+    "cpu_count": 12,
+    "gpu": "none (CPU only)",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "libraries": {
+    "faiss": "1.13.2",
+    "fastapi": "0.136.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "pydantic": "2.13.1",
+    "python": "3.14.5",
+    "sklearn": "1.8.0",
+    "torch": "2.11.0+cpu",
+    "torchvision": "0.26.0+cpu",
+    "transformers": "5.5.4"
+  },
+  "limitations": [
+    "MAE is the headline: RMSE is dominated by <0.1% extreme resolution times.",
+    "Synthetic data."
+  ],
+  "model_version": "omnisupport-models-v1.0.0/resolution-hgb",
+  "run": "ml_regression",
+  "seed": 42,
+  "split_method": "temporal: train 2025-01..08, val 09..10, test 11..12; CV grouped by customer",
+  "started_utc": "2026-11-23T11:55:47+00:00",
+  "status": "completed"
+}

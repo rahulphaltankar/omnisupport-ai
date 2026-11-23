@@ -1,0 +1,21 @@
+{
+  "interval_90_coverage_test": 0.8982837253960634,
+  "mae_excluding_top_0.1pct_targets": 3.3052966639158625,
+  "mae_reduction_vs_median_pct": 48.03445184620271,
+  "mean_interval_width_h": 13.385592412218367,
+  "metrics": {
+    "mae": 3.49152005674494,
+    "mape_pct": 15.269119032270186,
+    "median_ae": 2.775536228851757,
+    "r2": 0.314496056848123,
+    "rmse": 11.376902099495792
+  },
+  "pre_registered_success_criteria": {
+    "mae_reduction>=30pct": true
+  },
+  "rmse_reduction_vs_median_pct": 17.350210968929368,
+  "sla_36h_precision": 0.9067276290006532,
+  "sla_36h_recall": 0.6108422071636012,
+  "sla_cutoff_h": 34.0,
+  "test_evaluations_performed": 1
+}

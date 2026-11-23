@@ -1,0 +1,5 @@
+column,variant,count,canonical,canonical_count
+support_channel,Web Chat,1961,web_chat,398885.0
+customer_region,london,1099,London,176289.0
+customer_region,<blank>,15286,Unknown (explicit),
+product_category,Electronics,913,electronics,188219.0

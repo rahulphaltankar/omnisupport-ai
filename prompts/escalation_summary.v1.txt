@@ -1,0 +1,11 @@
+Task: write a short escalation summary for a human agent. safety_risk is true for smoke, fire, sparks, shock, injury or chemical exposure; those are priority urgent with needs_human_review true.
+
+Return exactly this JSON shape: {schema}
+
+Example
+Message: "My blender made a weird noise."
+JSON: {"summary": "Customer reports a strange noise from a blender.", "safety_risk": false, "priority": "medium", "needs_human_review": false}
+
+Now the real message.
+Message: "{message}"
+JSON:

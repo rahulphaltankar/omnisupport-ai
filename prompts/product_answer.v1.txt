@@ -1,0 +1,11 @@
+Task: answer a product question ONLY if the message itself contains the facts. Otherwise say you cannot confirm, state the uncertainty, and name the source the customer should check (product specification page).
+
+Return exactly this JSON shape: {schema}
+
+Example
+Message: "Is this kettle 2 litres?"
+JSON: {"answer": "I cannot confirm the capacity from this message.", "uncertainty": "No product details were provided.", "recommended_source": "Product specification page"}
+
+Now the real message.
+Message: "{message}"
+JSON:

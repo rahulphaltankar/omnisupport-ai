@@ -1,0 +1,46 @@
+{
+  "best_params": {
+    "l2_regularization": 2.0,
+    "learning_rate": 0.08,
+    "loss": "absolute_error",
+    "max_iter": 400,
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 20
+  },
+  "cv_mae_tuned": 3.562274808617049,
+  "search_space": {
+    "m__base__l2_regularization": [
+      0.0,
+      0.5,
+      2.0,
+      5.0
+    ],
+    "m__base__learning_rate": [
+      0.03,
+      0.05,
+      0.08,
+      0.12
+    ],
+    "m__base__loss": [
+      "squared_error",
+      "absolute_error"
+    ],
+    "m__base__max_iter": [
+      150,
+      250,
+      400
+    ],
+    "m__base__max_leaf_nodes": [
+      15,
+      31,
+      63,
+      127
+    ],
+    "m__base__min_samples_leaf": [
+      20,
+      50,
+      100,
+      200
+    ]
+  }
+}

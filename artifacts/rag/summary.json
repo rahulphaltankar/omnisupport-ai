@@ -1,0 +1,50 @@
+{
+  "by_kind": [
+    {
+      "abstain_rate": 0.0,
+      "avg_latency_ms": 14.067,
+      "conflict_rate": 0.0,
+      "kind": "own_adversarial",
+      "n": 3,
+      "review_rate": 1.0,
+      "source_hit": null
+    },
+    {
+      "abstain_rate": 0.0,
+      "avg_latency_ms": 13.675,
+      "conflict_rate": 0.083,
+      "kind": "own_answerable",
+      "n": 12,
+      "review_rate": 0.167,
+      "source_hit": 0.8333333333
+    },
+    {
+      "abstain_rate": 0.917,
+      "avg_latency_ms": 13.525,
+      "conflict_rate": 0.0,
+      "kind": "own_unanswerable",
+      "n": 12,
+      "review_rate": 0.917,
+      "source_hit": null
+    },
+    {
+      "abstain_rate": 0.0,
+      "avg_latency_ms": 13.627,
+      "conflict_rate": 0.133,
+      "kind": "public",
+      "n": 15,
+      "review_rate": 0.2,
+      "source_hit": 0.9333333333
+    }
+  ],
+  "dev_balanced_acc": 1.0,
+  "heldout_balanced_acc": 0.888888888888889,
+  "selected_chunking": "section",
+  "tfidf_fallback": {
+    "pub_abstain_rate": 0.6,
+    "pub_source_hit_when_answered": 1.0,
+    "threshold": 0.2,
+    "unanswerable_abstain_rate": 1.0
+  },
+  "threshold": 0.33999999999999997
+}

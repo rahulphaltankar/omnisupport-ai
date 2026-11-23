@@ -1,0 +1,50 @@
+# --- secrets / local config (never commit) ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# --- python / tooling ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.egg-info/
+.coverage
+htmlcov/
+
+# --- large / raw / prohibited-by-brief data (supplied separately; layout documented in data/README.md) ---
+data/raw/
+data/images/
+data/subsets/
+data/processed/
+data/**/*.parquet
+data/**/*.zip
+
+# --- instructor-only / hidden assessment material (must never be in this repo) ---
+Instructor_Assessment_Pack/
+**/hidden_evaluation/
+**/instructor*/
+INSTRUCTOR*
+
+# --- runtime outputs ---
+logs/
+*.log
+*.tmp
+
+# --- model weights and caches (metadata/small serving models are allowed) ---
+models/**/*.pt
+models/**/*.pth
+models/**/*.bin
+models/**/*.safetensors
+models/**/*.ckpt
+models/hf_*/
+models/**/checkpoint-*/
+!models/serving/*.joblib
+!models/tabular_nn/*.pt
+hf_cache/

@@ -1,0 +1,12 @@
+Task: extract a structured support record from the customer message.
+Rules: order_id only if an ID like ORD12345678 is written in the message, else null and add "order_id" to missing_information. priority: urgent for safety/fire/smoke or account compromise; high for essential goods, delays over 7 days or money at stake; low for simple questions; otherwise medium. needs_human_review true for safety, account compromise, payments disputes or when unsure.
+
+Return exactly this JSON shape: {schema}
+
+Example
+Message: "Item arrived smashed, order ORD00004321, want my money back."
+JSON: {"issue_category": "damaged_item", "priority": "medium", "order_id": "ORD00004321", "customer_intent": "request a refund for a damaged item", "needs_human_review": false, "missing_information": []}
+
+Now the real message.
+Message: "{message}"
+JSON:

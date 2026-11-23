@@ -1,0 +1,36 @@
+{
+  "metrics": {
+    "base_rate": 0.30694911185789725,
+    "brier": 0.17928953745684367,
+    "f1": 0.5523117403834106,
+    "flag_rate": 0.5551368218915026,
+    "fn": 11478,
+    "fp": 52836,
+    "pr_auc": 0.5720397390520242,
+    "pr_auc_ci95_bootstrap50k": [
+      0.5631792236754515,
+      0.5793129956148874
+    ],
+    "precision": 0.42884939680892464,
+    "recall": 0.7756011730205279,
+    "roc_auc": 0.7336875938614058,
+    "roc_auc_ci95_bootstrap50k": [
+      0.7292371935973223,
+      0.7385934856344162
+    ],
+    "threshold": 0.24,
+    "tn": 62654,
+    "tp": 39672
+  },
+  "note": "Model, features, hyper-parameters and threshold were frozen on train/validation before this call.",
+  "pre_registered_success_criteria": {
+    "pr_auc>=0.50": true,
+    "recall>=0.60": true,
+    "roc_auc>=0.70": true
+  },
+  "test_evaluations_performed": 1,
+  "test_period": [
+    "2025-11-01 00:00:00",
+    "2025-12-31 23:59:00"
+  ]
+}

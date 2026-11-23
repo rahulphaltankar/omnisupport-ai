@@ -1,0 +1,10 @@
+rule,rows_affected,rows_removed,rows_after,note
+strip_whitespace,0,0,1000000,leading/trailing whitespace on string columns
+normalise_category_case,2874,0,1000000,"e.g. 'Web Chat'->'web_chat', 'Electronics'->'electronics'"
+normalise_region,16385,0,1000000,15286 blank -> 'Unknown'; 1099 casing fixes
+blank_text_to_missing,9971,0,1000000,blank issue_description set to NA with flag
+parse_timestamp,0,0,1000000,unparseable timestamps become NaT and are dropped below
+drop_impossible_values,0,0,1000000,"non-positive value/time, negative counts, csat outside 1-5, bad timestamp"
+drop_exact_duplicates,4000,4000,996000,all-column duplicates; first kept
+drop_conflicting_ticket_id,0,0,996000,"same ticket_id, different content"
+TOTAL,4000,4000,996000,"1,000,000 -> 996,000"

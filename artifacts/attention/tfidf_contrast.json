@@ -1,0 +1,15 @@
+{
+  "attention_refund_to_no_focus": 0.04425301402807236,
+  "attention_refund_to_no_reorder": 0.04514480382204056,
+  "contextual_vector_dim": 768,
+  "distilbert_token_cosine_item_focus_vs_reorder": 0.984955022341018,
+  "distilbert_token_cosine_refund_focus_vs_reorder": 0.9812887490270927,
+  "manual_vs_model_attention_max_abs_diff_head0": 6.61003357049772e-08,
+  "manual_vs_model_layer0_output_max_abs_diff": 9.5367431640625e-07,
+  "minilm_sentence_cosine_focus_vs_negation": 0.9578189502286609,
+  "minilm_sentence_cosine_focus_vs_reorder": 0.9457872405678016,
+  "tfidf_cosine_focus_vs_negation": 0.6635493598650145,
+  "tfidf_cosine_focus_vs_reorder": 0.999999999999,
+  "tfidf_nonzero_in_focus_sentence": 8,
+  "tfidf_vocab_dim": 856
+}

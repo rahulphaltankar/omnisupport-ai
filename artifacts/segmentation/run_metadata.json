@@ -1,0 +1,48 @@
+{
+  "config": {
+    "algorithm": "MiniBatchKMeans n_init=5",
+    "features": [
+      "log_order_value",
+      "log_delay",
+      "previous_ticket_count",
+      "customer_tenure_months",
+      "attachment_available",
+      "issue_family (weight 0.7)"
+    ],
+    "fit_sample": 150000,
+    "k_range": "2-9",
+    "unit": "ticket"
+  },
+  "duration_s": 70.94,
+  "extra": {
+    "k": 6
+  },
+  "git_commit": null,
+  "hardware": {
+    "cpu_count": 12,
+    "gpu": "none (CPU only)",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "libraries": {
+    "faiss": "1.13.2",
+    "fastapi": "0.136.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "pydantic": "2.13.1",
+    "python": "3.14.5",
+    "sklearn": "1.8.0",
+    "torch": "2.11.0+cpu",
+    "torchvision": "0.26.0+cpu",
+    "transformers": "5.5.4"
+  },
+  "limitations": [
+    "Synthetic data: segments describe generator structure, not real behaviour.",
+    "Personas are descriptive associations; no causal claim."
+  ],
+  "model_version": "segmentation-v1",
+  "run": "segmentation",
+  "seed": 42,
+  "split_method": "fit on train sample; stability and profile consistency checked on validation period",
+  "started_utc": "2026-11-23T11:53:21+00:00",
+  "status": "completed"
+}

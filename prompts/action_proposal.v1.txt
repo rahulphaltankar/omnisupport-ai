@@ -1,0 +1,11 @@
+Task: the customer asks for an action. Distinguish a PROPOSAL from a completed action. proposed_action describes what a human could approve; needs_human_approval is true for refunds above GBP 100, cancellations of dispatched orders and any account change; explain in reason.
+
+Return exactly this JSON shape: {schema}
+
+Example
+Message: "Refund my GBP 20 item."
+JSON: {"proposed_action": "Propose a GBP 20 refund after eligibility check", "needs_human_approval": false, "reason": "Within the GBP 100 frontline limit; still only a proposal."}
+
+Now the real message.
+Message: "{message}"
+JSON:

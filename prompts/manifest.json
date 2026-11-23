@@ -1,0 +1,45 @@
+{
+  "prompt_version": "prompts-v1.0.0",
+  "tasks": {
+    "extraction": {
+      "file": "extraction.v1.txt",
+      "sha256_12": "2466b6393d91",
+      "schema": "TicketExtraction"
+    },
+    "classify_summarise": {
+      "file": "classify_summarise.v1.txt",
+      "sha256_12": "3fb1cc9ea34a",
+      "schema": "ClassifySummary"
+    },
+    "account_risk": {
+      "file": "account_risk.v1.txt",
+      "sha256_12": "aef5f9ce6fcd",
+      "schema": "AccountRisk"
+    },
+    "policy_summary": {
+      "file": "policy_summary.v1.txt",
+      "sha256_12": "d7ff2b7bd381",
+      "schema": "PolicySummary"
+    },
+    "secret_guard": {
+      "file": "secret_guard.v1.txt",
+      "sha256_12": "0b50e26fefb7",
+      "schema": "SafeResponse"
+    },
+    "action_proposal": {
+      "file": "action_proposal.v1.txt",
+      "sha256_12": "e56b113c4604",
+      "schema": "ActionProposal"
+    },
+    "escalation_summary": {
+      "file": "escalation_summary.v1.txt",
+      "sha256_12": "6771948ac0c0",
+      "schema": "EscalationSummary"
+    },
+    "product_answer": {
+      "file": "product_answer.v1.txt",
+      "sha256_12": "d530b5b93cc9",
+      "schema": "ProductAnswer"
+    }
+  }
+}

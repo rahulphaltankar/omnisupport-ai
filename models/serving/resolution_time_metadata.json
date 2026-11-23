@@ -1,0 +1,60 @@
+{
+  "features": [
+    "customer_tenure_months",
+    "order_value",
+    "delivery_delay_days",
+    "previous_ticket_count",
+    "attachment_available",
+    "hour",
+    "dayofweek",
+    "month",
+    "is_weekend",
+    "is_night",
+    "desc_len",
+    "desc_words",
+    "desc_upper_ratio",
+    "desc_exclaim",
+    "desc_missing",
+    "desc_days_mentioned",
+    "desc_urgent_phrase",
+    "desc_mobile_footer",
+    "log_order_value",
+    "delay_x_prev_tickets",
+    "value_x_delay",
+    "tenure_bucket_new",
+    "repeat_contact",
+    "support_channel",
+    "customer_region",
+    "product_category",
+    "issue_title"
+  ],
+  "hyperparameters": {
+    "l2_regularization": 2.0,
+    "learning_rate": 0.08,
+    "loss": "absolute_error",
+    "max_iter": 400,
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 20
+  },
+  "interval": "5th-95th percentile quantile models (nominal 90%)",
+  "model_version": "omnisupport-models-v1.0.0/resolution-hgb",
+  "seed": 42,
+  "sklearn_version": "1.8.0",
+  "sla_cutoff_h": 34.0,
+  "sla_hours": 36.0,
+  "task": "predict resolution_time_hours at ticket creation (T0)",
+  "test_metrics": {
+    "mae": 3.49152005674494,
+    "mape_pct": 15.269119032270186,
+    "median_ae": 2.775536228851757,
+    "r2": 0.314496056848123,
+    "rmse": 11.376902099495792
+  },
+  "validation_metrics": {
+    "mae": 3.5704186412879677,
+    "mape_pct": 15.287908787053722,
+    "median_ae": 2.7709022385749726,
+    "r2": 0.23869846140146533,
+    "rmse": 13.677233357301395
+  }
+}

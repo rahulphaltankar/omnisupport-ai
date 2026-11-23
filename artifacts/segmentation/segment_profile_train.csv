@@ -1,0 +1,7 @@
+segment,share,order_value_median,delay_days_mean,previous_tickets_mean,tenure_months_mean,attachment_rate,escalation_rate,resolution_h_mean,top_issue_family,top_family_share
+0,0.183,210.285,1.207,1.232,27.876,0.001,0.284,20.908,account_payment_other,0.482
+1,0.184,103.655,1.513,1.742,32.392,1.0,0.284,24.579,damage,0.382
+2,0.138,104.015,1.897,3.878,29.625,0.015,0.48,25.178,account_payment_other,0.425
+3,0.2,103.48,8.314,1.58,29.706,0.007,0.4,29.661,delivery,0.902
+4,0.099,104.75,2.53,1.667,83.701,0.064,0.281,22.824,account_payment_other,0.364
+5,0.196,54.49,1.194,1.215,27.463,0.0,0.167,20.166,account_payment_other,0.478

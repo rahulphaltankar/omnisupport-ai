@@ -1,0 +1,11 @@
+{
+  "interval_coverage_validation_90pct_nominal": 0.898295311204815,
+  "patterns": [
+    "Largest MAE: `true_bucket`=36-60h (MAE 6.1h, bias -4.4h, n=10,877)",
+    "Largest MAE: `issue_title`=Login not working (MAE 4.0h, bias -1.4h, n=4,378)",
+    "Largest MAE: `issue_title`=Card charged incorrectly (MAE 3.9h, bias -1.1h, n=4,407)",
+    "Systematic bias: `true_bucket`=36-60h (mean error -4.4h, n=10,877)",
+    "Systematic bias: `true_bucket`=24-36h (mean error -2.3h, n=63,880)"
+  ],
+  "sla_cutoff_h": 34.0
+}

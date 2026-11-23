@@ -1,0 +1,72 @@
+{
+  "config": {
+    "cv": "GroupKFold(5) by customer_id on a 120k train subsample",
+    "features": [
+      "customer_tenure_months",
+      "order_value",
+      "delivery_delay_days",
+      "previous_ticket_count",
+      "attachment_available",
+      "hour",
+      "dayofweek",
+      "month",
+      "is_weekend",
+      "is_night",
+      "desc_len",
+      "desc_words",
+      "desc_upper_ratio",
+      "desc_exclaim",
+      "desc_missing",
+      "desc_days_mentioned",
+      "desc_urgent_phrase",
+      "desc_mobile_footer",
+      "log_order_value",
+      "delay_x_prev_tickets",
+      "value_x_delay",
+      "tenure_bucket_new",
+      "repeat_contact",
+      "support_channel",
+      "customer_region",
+      "product_category",
+      "issue_title"
+    ],
+    "fn_cost": 3.0,
+    "fp_cost": 1.0,
+    "target": "escalated",
+    "tuning": "RandomizedSearchCV n_iter=14, GroupKFold(3), scoring=average_precision"
+  },
+  "duration_s": 695.68,
+  "extra": {
+    "chosen_threshold": 0.24,
+    "test_pr_auc": 0.5720397390520242,
+    "test_roc_auc": 0.7336875938614058
+  },
+  "git_commit": null,
+  "hardware": {
+    "cpu_count": 12,
+    "gpu": "none (CPU only)",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "libraries": {
+    "faiss": "1.13.2",
+    "fastapi": "0.136.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "pydantic": "2.13.1",
+    "python": "3.14.5",
+    "sklearn": "1.8.0",
+    "torch": "2.11.0+cpu",
+    "torchvision": "0.26.0+cpu",
+    "transformers": "5.5.4"
+  },
+  "limitations": [
+    "Synthetic data; temporal split but 96% of later customers appear in train.",
+    "CV/tuning on a 120k train subsample for runtime; the final model is refit on all train rows."
+  ],
+  "model_version": "omnisupport-models-v1.0.0/escalation-hgb",
+  "run": "ml_classification",
+  "seed": 42,
+  "split_method": "temporal: train 2025-01..08, val 09..10, test 11..12; CV grouped by customer",
+  "started_utc": "2026-11-23T11:28:58+00:00",
+  "status": "completed"
+}

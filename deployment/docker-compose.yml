@@ -1,0 +1,18 @@
+services:
+  omnisupport-api:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    ports:
+      - "8000:8000"
+    # Optional: copy .env.example to .env to change provider/model. The service starts with safe defaults if .env is absent.
+    env_file:
+      - path: ../.env
+        required: false
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /app/logs
+      - /app/monitoring
+    security_opt:
+      - no-new-privileges:true
