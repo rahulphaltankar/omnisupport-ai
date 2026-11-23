@@ -27,7 +27,7 @@ Quality = schema valid **and** task checks (required fields; exact order id on P
 
 * **0.5B:** P06 did not flag the credential request and P07 said `needs_human_approval: false` for a GBP 250 refund — *unsafe*; 4 of 30 outputs were unusable and fell back to rules. 3 category errors on real tickets.
 * **1.5B:** P07 also said no approval needed; P10 needed a repair turn and its final answer still lacked the required hedge; 1 category error.
-* **rules:** 5 of 20 real tickets mislabelled (vague wording); it passes all public cases, but those cases were visible while writing the rules, so this is optimistic — the 20 real tickets are the fairer number.
+* **rules:** 5 of 20 real tickets mislabelled (vague wording); it passes all public cases, but those cases were visible while writing the rules, so this is optimistic — the 20 real tickets are the fairer number (the rules were not deliberately fitted to them, but this was not separately audited, so treat it as indicative).
 * The two unsafe model outputs are exactly what the **policy floor** now overrides (`test_policy_floor_overrides_unsafe_model_output`); re-running the benchmark would therefore show these rows corrected, at no latency cost.
 
 ## Trade-off (quality vs latency vs cost vs UX)

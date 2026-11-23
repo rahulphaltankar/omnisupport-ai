@@ -33,7 +33,7 @@ This page is the single place that maps *what could go wrong* to *the guardrail*
 | Wrong decision on a safety report | safety keywords always escalate with approved-guidance text only, no diagnosis | agent A08, `test_safety_report_escalates` |
 | Path traversal / arbitrary file read via the vision endpoint | path must resolve inside `data/images` with an image suffix; 400/404 otherwise, validated *before* any model import | `test_vision_blocks_path_traversal` (4 payloads) |
 | Stack-trace / secret leakage in API errors | handler returns generic `internal error`; component failures are `503` with a controlled message; health reports only `api_key_configured: bool` | `tests/integration/test_api_end_to_end.py` |
-| Component unavailable in the deployment (no torch, sklearn version mismatch) | dense→TF-IDF retrieval fallback, escalation model 503 with message, LLM provider → rules fallback | clean-environment CI run (Python 3.13, `requirements-ci.txt`: 73 tests pass) |
+| Component unavailable in the deployment (no torch, sklearn version mismatch) | dense→TF-IDF retrieval fallback, escalation model 503 with message, LLM provider → rules fallback | clean-environment CI run (Python 3.13, `requirements-ci.txt`: 74 tests pass) |
 | Unfair performance across groups | sensitive attributes excluded from inputs; recall/FPR/calibration by group with Wilson CIs and small-group flags | `reports/subgroup_report.md` |
 | Secrets or raw data committed | `.gitignore`, `.env.example`, `scripts/repo_guard.py` (secret patterns, forbidden paths, size) as a CI step | `repo guard OK` in CI |
 
@@ -46,6 +46,6 @@ This page is the single place that maps *what could go wrong* to *the guardrail*
 
 ## 4. Release gate (all must be true before publishing)
 
-1. `pytest tests` green in a clean Python 3.13 venv with `requirements-ci.txt` (done: 73 passed).
+1. `pytest tests` green in a clean Python 3.13 venv with `requirements-ci.txt` (done: 74 passed).
 2. `python scripts/repo_guard.py` clean. 3. GitHub Actions `ci` green on the pushed commit. 4. Every checklist item in `reports/evidence_map.md` has a file path that exists.
 5. No metric appears in a report that is not produced by a script in `scripts/` (numbers are copied from `artifacts/`).

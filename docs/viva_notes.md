@@ -46,7 +46,7 @@ Short answers first, then where to look. Numbers are copied from `artifacts/`; i
 
 ## Engineering and responsibility
 
-**What happens when torch, the model file or the LLM is unavailable?** Dense retrieval degrades to TF-IDF (precise, lower recall), the escalation endpoint returns a controlled 503, the LLM provider falls back to rules. A clean Python 3.13 environment with only `requirements-ci.txt` passes all 73 tests.
+**What happens when torch, the model file or the LLM is unavailable?** Dense retrieval degrades to TF-IDF (precise, lower recall), the escalation endpoint returns a controlled 503, the LLM provider falls back to rules. A clean Python 3.13 environment with only `requirements-ci.txt` passes all 74 tests.
 
 **Fairness?** Sensitive attributes are not inputs; subgroup recall/FPR/calibration with CIs in `reports/subgroup_report.md`. Synthetic data, so findings describe the pipeline, not real customers.
 
