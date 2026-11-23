@@ -1,0 +1,5 @@
+label,train,val,test
+damaged,84,18,18
+normal,84,18,18
+packaging_damage,84,18,18
+wrong_item,84,18,18

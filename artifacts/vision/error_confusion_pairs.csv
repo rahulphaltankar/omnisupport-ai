@@ -1,0 +1,9 @@
+model,condition,true,pred,count
+basic_cnn,rotate(40),damaged,packaging_damage,18
+basic_cnn,rotate(40),normal,packaging_damage,18
+basic_cnn,rotate(40),wrong_item,packaging_damage,18
+resnet18_transfer,noise(0.15),normal,damaged,8
+resnet18_transfer,noise(0.15),packaging_damage,damaged,8
+resnet18_transfer,rotate(40),packaging_damage,damaged,6
+resnet18_transfer,noise(0.15),wrong_item,damaged,1
+resnet18_transfer,occlude(0.35),damaged,packaging_damage,1

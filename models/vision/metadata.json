@@ -1,0 +1,38 @@
+{
+  "basic_cnn_sha256_12": "6ca0cf05e897",
+  "classes": [
+    "damaged",
+    "normal",
+    "packaging_damage",
+    "wrong_item"
+  ],
+  "input": "RGB 96x96 in [0,1]",
+  "model_version": "omnisupport-models-v1.0.0/vision",
+  "resnet18_sha256_12": "6bd7f200ef6d",
+  "seed": 42,
+  "summary": [
+    {
+      "model": "basic_cnn",
+      "ms_per_image": 3.0633083321542167,
+      "params_total": 146900,
+      "params_trainable": 146900,
+      "test_acc_seed42": 1.0,
+      "test_macro_f1_mean_3seeds": 1.0,
+      "test_macro_f1_seed42": 1.0,
+      "test_macro_f1_std_3seeds": 0.0,
+      "train_seconds_mean": 154.86178316672644
+    },
+    {
+      "model": "resnet18_transfer",
+      "ms_per_image": 10.768737500054867,
+      "params_total": 11178564,
+      "params_trainable": 8395780,
+      "test_acc_seed42": 1.0,
+      "test_macro_f1_mean_3seeds": 1.0,
+      "test_macro_f1_seed42": 1.0,
+      "test_macro_f1_std_3seeds": 0.0,
+      "train_seconds_mean": 87.66710833332036
+    }
+  ],
+  "torch": "2.11.0+cpu"
+}

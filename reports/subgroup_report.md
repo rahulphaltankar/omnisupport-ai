@@ -77,6 +77,26 @@ Age band, language and accessibility flag were **not** model inputs (leakage/sen
 - Groups (n >= 1000) whose recall CI excludes the overall recall: `preferred_language=Urdu` (+0.030), `product_category=appliances` (+0.090), `product_category=beauty` (-0.026), `product_category=electronics` (+0.061), `product_category=fashion` (-0.034), `product_category=grocery` (-0.094), `product_category=home` (-0.028), `product_category=sports` (-0.020), `product_category=toys` (-0.028)
 - Flag-rate spread (relative to overall): `product_category=grocery` x0.79; `product_category=appliances` x1.23. Differences in flag rate largely track differences in base rate (see `base_rate` column), which is expected for a risk score; recall/FPR parity is the better fairness lens.
 
+## Regression (resolution time) by sensitive attribute
+
+| attribute                  | value    |      n |   mae |   bias |   mean_actual |   mae_ratio_vs_overall |
+|:---------------------------|:---------|-------:|------:|-------:|--------------:|-----------------------:|
+| customer_age_band          | 18-24    |  16745 | 3.592 | -0.841 |        24.084 |                  1.029 |
+| customer_age_band          | 25-34    |  41764 | 3.444 | -0.712 |        23.976 |                  0.986 |
+| customer_age_band          | 35-44    |  38176 | 3.482 | -0.726 |        23.868 |                  0.997 |
+| customer_age_band          | 45-54    |  31664 | 3.56  | -0.815 |        23.943 |                  1.02  |
+| customer_age_band          | 55-64    |  23200 | 3.471 | -0.68  |        23.867 |                  0.994 |
+| customer_age_band          | 65+      |  15091 | 3.424 | -0.679 |        23.917 |                  0.981 |
+| preferred_language         | English  | 148421 | 3.49  | -0.732 |        23.924 |                  0.999 |
+| preferred_language         | Polish   |   4161 | 3.417 | -0.773 |        23.799 |                  0.979 |
+| preferred_language         | Punjabi  |   4043 | 3.551 | -0.844 |        24.051 |                  1.017 |
+| preferred_language         | Romanian |   3367 | 3.644 | -0.975 |        24.162 |                  1.044 |
+| preferred_language         | Urdu     |   4181 | 3.372 | -0.596 |        24.18  |                  0.966 |
+| preferred_language         | Welsh    |   2467 | 3.634 | -0.948 |        23.942 |                  1.041 |
+| accessibility_support_flag | 0        | 160501 | 3.481 | -0.722 |        23.921 |                  0.997 |
+| accessibility_support_flag | 1        |   6139 | 3.771 | -1.215 |        24.318 |                  1.08  |
+
+
 ## Interpretation and limits
 
 - The data are synthetic; a gap here is a property of the generator and model, not evidence about real customers. The procedure is what transfers.

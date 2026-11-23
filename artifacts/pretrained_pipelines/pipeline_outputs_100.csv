@@ -1,0 +1,101 @@
+ticket_id,issue_description,issue_category,customer_sentiment,sentiment_label,sentiment_score,zeroshot_pred,zeroshot_conf
+TKT000203303,Can someone check this? the login keeps failing. Thank you. ASAP,account_access,negative,NEGATIVE,0.9893480539321899,wrong_item,0.21335671842098236
+TKT000993814,"hello, the login keeps failing. i need this resolved soon. pls",account_access,neutral,NEGATIVE,0.9992875456809998,wrong_item,0.2560352683067322
+TKT000056724,"Hi, the password reset is not working. Can you confirm the next step? sent from mobile",account_access,negative,NEGATIVE,0.9996585845947266,refund_status,0.249065563082695
+TKT000786758,"Support team, I would like to return the item. The order value is about GBP 178.23. Thanks. thx",return_request,negative,POSITIVE,0.6133830547332764,refund_status,0.4044375717639923
+TKT000110601,"Hello, can you explain a product feature. Thanks. ASAP",product_question,neutral,POSITIVE,0.9985167384147644,product_question,0.7105006575584412
+TKT000991924,"Hi, tracking has not moved. It is around 10 days beyond the expected delivery date. Thank you. !!!",delivery_late,negative,NEGATIVE,0.9840477108955383,refund_status,0.23332910239696503
+TKT000032596,"Hi, the item arrived cracked. The order value is about GBP 72.35. Thanks. ASAP",damaged_item,negative,NEGATIVE,0.994644045829773,damaged_item,0.3594890832901001
+TKT000562974,Can someone check this? I cannot access my account. Please advise. thx,account_access,positive,NEGATIVE,0.9973358511924744,account_access,0.20299722254276276
+TKT000617629,"Hello, the product is damaged. The order value is about GBP 132.78. Thanks. ASAP",damaged_item,negative,NEGATIVE,0.9993046522140503,product_question,0.3001910448074341
+TKT000836250,I need assistance because the item arrived cracked. The order value is about GBP 150.87. I need this resolved soon. pls,damaged_item,neutral,NEGATIVE,0.9988686442375183,payment_issue,0.4594220221042633
+TKT000820558,"Hello, there is visible damage. The order value is about GBP 283.62. Thanks. ASAP",damaged_item,negative,NEGATIVE,0.9974148273468018,damaged_item,0.3208566904067993
+TKT000541646,Please help - please tell me how to send this back. The order value is about GBP 236.39. Please advise. ASAP,return_request,neutral,NEGATIVE,0.995917022228241,payment_issue,0.39899805188179016
+TKT000401897,Can someone check this? the product is damaged. The order value is about GBP 122.66. Can you confirm the next step? sent from mobile,damaged_item,negative,NEGATIVE,0.9996918439865112,payment_issue,0.29679906368255615
+TKT000025175,Please help - is this fault covered. Thanks. sent from mobile,warranty,neutral,NEGATIVE,0.9980736970901489,wrong_item,0.6479498147964478
+TKT000364199,Please help - I still have not received my refund. The order value is about GBP 52.68. Please advise. !!!,refund_status,positive,NEGATIVE,0.9957695007324219,payment_issue,0.3443671464920044
+TKT000106976,"Support team, the product is damaged. The order value is about GBP 193.55. Please advise. thx",damaged_item,positive,NEGATIVE,0.9997841715812683,payment_issue,0.40925756096839905
+TKT000938002,"Hi, I would like to return the item. The order value is about GBP 44.84. Please advise. sent from mobile",return_request,neutral,NEGATIVE,0.9722646474838257,refund_status,0.3445014953613281
+TKT000334991,"Hello, tracking has not moved. It is around 11 days beyond the expected delivery date. I need this resolved soon. !!!",delivery_late,negative,NEGATIVE,0.9977860450744629,refund_status,0.35390907526016235
+TKT000145371,"Support team, I returned the item but no refund is visible. The order value is about GBP 35.17. Thanks. !!!",refund_status,positive,NEGATIVE,0.8631063103675842,return_request,0.4764802157878876
+TKT000473544,please help - is this still within the return window. the order value is about gbp 61.04. i need this resolved soon.,return_request,positive,NEGATIVE,0.9973065853118896,warranty,0.3590880036354065
+TKT000334060,"Hello, the product is damaged. The order value is about GBP 97.74. Please get back to me. thx",damaged_item,negative,NEGATIVE,0.9996610879898071,payment_issue,0.28229424357414246
+TKT000531673,"Hello, the item arrived cracked. The order value is about GBP 89.75. Can you confirm the next step? ...",damaged_item,negative,NEGATIVE,0.9963755011558533,damaged_item,0.27554255723953247
+TKT000138907,Please help - the product stopped working under warranty. Thanks. ...,warranty,negative,NEGATIVE,0.9991733431816101,product_question,0.43239209055900574
+TKT000582814,"Hi, please check my refund status. The order value is about GBP 115.68. Thank you. !!!",refund_status,negative,POSITIVE,0.9987737536430359,product_question,0.23386584222316742
+TKT000389354,Please help - please check my refund status. The order value is about GBP 205.70. Thank you.,refund_status,negative,POSITIVE,0.9951340556144714,warranty,0.36062997579574585
+TKT000401260,I need assistance because checkout did not complete properly. Please get back to me. ...,payment_issue,negative,NEGATIVE,0.9996695518493652,payment_issue,0.18335884809494019
+TKT000724037,Please help - this is the incorrect item. The order value is about GBP 81.34. Thanks. sent from mobile,wrong_item,negative,NEGATIVE,0.9971380233764648,wrong_item,0.4391239583492279
+TKT000352808,"hi, the product is damaged. the order value is about gbp 229.35. please get back to me. #help",damaged_item,neutral,NEGATIVE,0.99964439868927,payment_issue,0.31839269399642944
+TKT000963931,"Hello, I have been waiting for the parcel. It is around 6 days beyond the expected delivery date. I need this resolved soon. sent from mobile",delivery_late,negative,NEGATIVE,0.9949446320533752,product_question,0.1515810191631317
+TKT000273013,Can someone check this? I need more information about the product. Thank you. ASAP,product_question,neutral,NEGATIVE,0.9840294718742371,product_question,0.9347497820854187
+TKT000192135,"Support team, the product is damaged. The order value is about GBP 69.24. Thanks. thx",damaged_item,neutral,NEGATIVE,0.9997727274894714,damaged_item,0.33646517992019653
+TKT000372938,"Hello, tracking has not moved. It is around 7 days beyond the expected delivery date. I need this resolved soon. !!!",delivery_late,neutral,NEGATIVE,0.9978153705596924,refund_status,0.30870211124420166
+TKT000809098,"Hello, I cannot access my account. Please advise.",account_access,negative,NEGATIVE,0.9720348119735718,account_access,0.17951206862926483
+TKT000911573,"Hello, I still have not received my refund. The order value is about GBP 80.99. Please get back to me. pls",refund_status,neutral,NEGATIVE,0.9980840682983398,warranty,0.2936200797557831
+TKT000864007,"Hi, is this still within the return window. The order value is about GBP 30.05. Thanks. #help",return_request,neutral,NEGATIVE,0.952418863773346,return_request,0.3604041635990143
+TKT000616255,"Hi, I cannot access my account. Thanks. thx",account_access,positive,NEGATIVE,0.9843474626541138,account_access,0.18495312333106995
+TKT000195706,"Support team, the login keeps failing. Thanks. pls",account_access,negative,NEGATIVE,0.9979167580604553,damaged_item,0.33912819623947144
+TKT000123521,Please help - I am locked out. Please get back to me. thx,account_access,negative,NEGATIVE,0.9970777034759521,return_request,0.22385123372077942
+TKT000380106,Please help - you sent a different product. The order value is about GBP 75.31. Please get back to me. ...,wrong_item,neutral,NEGATIVE,0.9961788654327393,product_question,0.5297688245773315
+TKT000730818,"Support team, the item in the box is not what I ordered. The order value is about GBP 71.43. I need this resolved soon.",wrong_item,positive,NEGATIVE,0.9996045231819153,payment_issue,0.2425532042980194
+TKT000486264,Please help - the card payment is incorrect. Please get back to me. !!!,payment_issue,neutral,NEGATIVE,0.9990704655647278,wrong_item,0.7565373778343201
+TKT000687451,"Hello, can you explain a product feature. Thank you. !!!",product_question,positive,POSITIVE,0.9997043013572693,product_question,0.9676055908203125
+TKT000024997,Please help - is this still within the return window. The order value is about GBP 36.27. Thanks. sent from mobile,return_request,positive,NEGATIVE,0.9684181213378906,refund_status,0.2795719802379608
+TKT000928255,I need assistance because I need help with the warranty. Thank you. ...,warranty,neutral,POSITIVE,0.9990653395652771,refund_status,0.2743639647960663
+TKT000880490,Please help - tracking has not moved. It is around 9 days beyond the expected delivery date. Please get back to me. ...,delivery_late,positive,NEGATIVE,0.9979531764984131,return_request,0.2408033162355423
+TKT000281650,Please help - please tell me how to send this back. The order value is about GBP 95.60. Please advise. pls,return_request,positive,NEGATIVE,0.9976814985275269,payment_issue,0.43985962867736816
+TKT000378101,Please help - I have been waiting for the parcel. It is around 3 days beyond the expected delivery date. Please get back to me. pls,delivery_late,negative,NEGATIVE,0.9959763884544373,payment_issue,0.20898859202861786
+TKT000983159,I need assistance because can you explain a product feature. Thank you. ASAP,product_question,negative,POSITIVE,0.998171329498291,product_question,0.928119421005249
+TKT000632422,"Hi, I want to start a return. The order value is about GBP 155.22. Please advise. #help",return_request,positive,NEGATIVE,0.9890212416648865,payment_issue,0.25134414434432983
+TKT000177969,"Hello, my order is late. It is around 3 days beyond the expected delivery date. I need this resolved soon. pls",delivery_late,negative,NEGATIVE,0.9969388246536255,delivery_late,0.5199571251869202
+TKT000586463,"Hello, I want to start a return. The order value is about GBP 61.53. Thanks. !!!",return_request,neutral,POSITIVE,0.974082350730896,product_question,0.2979292869567871
+TKT000476827,"Hello, I want to start a return. The order value is about GBP 72.40. Please get back to me. #help",return_request,positive,NEGATIVE,0.9936811923980713,payment_issue,0.2370050698518753
+TKT000632860,"Hello, this is the incorrect item. The order value is about GBP 15.22. Thanks. sent from mobile",wrong_item,positive,NEGATIVE,0.9962782263755798,wrong_item,0.3134850561618805
+TKT000683406,"Hi, my payment failed but I see a charge. Please advise. ...",payment_issue,positive,POSITIVE,0.7720929980278015,payment_issue,0.5332468748092651
+TKT000629489,"Hi, I received the wrong colour or model. The order value is about GBP 56.15. I need this resolved soon. #help",wrong_item,negative,NEGATIVE,0.9993129968643188,wrong_item,0.3396592140197754
+TKT000212378,"Support team, my order is late. It is around 5 days beyond the expected delivery date. I need this resolved soon. ASAP",delivery_late,negative,NEGATIVE,0.9976620674133301,delivery_late,0.6404662728309631
+TKT000209968,"Hello, my payment failed but I see a charge. Please advise. pls",payment_issue,positive,NEGATIVE,0.7277480959892273,payment_issue,0.5620326399803162
+TKT000575363,Please help - I am locked out. I need this resolved soon. thx,account_access,neutral,NEGATIVE,0.997961163520813,damaged_item,0.2668730616569519
+TKT000914610,"Hello, the item in the box is not what I ordered. The order value is about GBP 93.50. I need this resolved soon. ...",wrong_item,negative,NEGATIVE,0.9993273019790649,refund_status,0.3943038582801819
+TKT000278930,"Support team, I cannot access my account. Thank you. pls",account_access,negative,NEGATIVE,0.8728907704353333,account_access,0.19999104738235474
+TKT000223303,Can someone check this? my order is late. It is around 6 days beyond the expected delivery date. Thanks. ...,delivery_late,negative,NEGATIVE,0.9199694395065308,delivery_late,0.5692393779754639
+TKT000963378,"Hello, checkout did not complete properly. I need this resolved soon. !!!",payment_issue,negative,NEGATIVE,0.9993103742599487,refund_status,0.8216993808746338
+TKT000745147,Please help - the item in the box is not what I ordered. The order value is about GBP 155.55. Thank you. ...,wrong_item,negative,NEGATIVE,0.9977763295173645,payment_issue,0.5219602584838867
+TKT000255052,Can someone check this? the delivery date has passed. It is around 6 days beyond the expected delivery date. Thank you. !!!,delivery_late,negative,NEGATIVE,0.9916250109672546,delivery_late,0.20526112616062164
+TKT000224785,"Hi, this is the incorrect item. The order value is about GBP 17.01. Thank you. #help",wrong_item,neutral,NEGATIVE,0.9924920201301575,wrong_item,0.4751260280609131
+TKT000118994,Please help - I received the wrong colour or model. The order value is about GBP 87.55. I need this resolved soon. sent from mobile,wrong_item,positive,NEGATIVE,0.9991232752799988,wrong_item,0.4458768665790558
+TKT000924633,Can someone check this? you sent a different product. The order value is about GBP 78.94. Thanks. thx,wrong_item,neutral,NEGATIVE,0.9892714023590088,refund_status,0.3652566373348236
+TKT000325896,"Hello, please check my refund status. The order value is about GBP 131.61. Thanks. sent from mobile",refund_status,positive,NEGATIVE,0.9696826338768005,warranty,0.3661773204803467
+TKT000906488,"Hi, I have a question about compatibility. Thank you. ASAP",product_question,neutral,POSITIVE,0.9996906518936157,product_question,0.43086573481559753
+TKT000185322,Please help - the product stopped working under warranty. Can you confirm the next step? #help,warranty,neutral,NEGATIVE,0.9996469020843506,product_question,0.5573872327804565
+TKT000210564,"Support team, can you explain a product feature. Thanks. ASAP",product_question,positive,POSITIVE,0.998446524143219,product_question,0.8447704315185547
+TKT000364828,"Hello, the card payment is incorrect. I need this resolved soon. #help",payment_issue,negative,NEGATIVE,0.997900128364563,wrong_item,0.8439357876777649
+TKT000586017,Can someone check this? the refund is showing as pending. The order value is about GBP 137.00. Thank you. #help,refund_status,neutral,POSITIVE,0.8374450206756592,warranty,0.320309042930603
+TKT000059972,"Hello, my payment failed but I see a charge. Please advise. !!!",payment_issue,positive,POSITIVE,0.9145243167877197,payment_issue,0.5308741331100464
+TKT000038669,Please help - I still have not received my refund. The order value is about GBP 128.85. I need this resolved soon. ASAP,refund_status,negative,NEGATIVE,0.9976052045822144,payment_issue,0.40480825304985046
+TKT000233397,"Support team, I returned the item but no refund is visible. The order value is about GBP 115.86. Can you confirm the next step? pls",refund_status,positive,NEGATIVE,0.9980870485305786,return_request,0.3366259038448334
+TKT000278937,PLEASE HELP - I RETURNED THE ITEM BUT NO REFUND IS VISIBLE. THE ORDER VALUE IS ABOUT GBP 79.16. PLEASE GET BACK TO ME. PLS,refund_status,negative,NEGATIVE,0.9987269043922424,return_request,0.488486647605896
+TKT000401759,"Hello, please clarify the product details. Can you confirm the next step? pls",product_question,positive,NEGATIVE,0.718087375164032,product_question,0.6511486768722534
+TKT000269169,"Support team, I have a question about compatibility. Can you confirm the next step?",product_question,positive,NEGATIVE,0.9642012715339661,product_question,0.6000813841819763
+TKT000154610,"Hello, I need more information about the product. Please get back to me.",product_question,neutral,NEGATIVE,0.9841651916503906,product_question,0.7318735718727112
+TKT000684966,"Hello, tracking stopped several days ago. It is around 15 days beyond the expected delivery date. Thank you. ...",lost_parcel,negative,NEGATIVE,0.901074230670929,product_question,0.22950677573680878
+TKT000943528,Please help - tracking stopped several days ago. It is around 8 days beyond the expected delivery date. Please advise. pls,lost_parcel,negative,NEGATIVE,0.9956652522087097,product_question,0.20582182705402374
+TKT000450118,Can someone check this? checkout did not complete properly. Please get back to me. pls,payment_issue,negative,NEGATIVE,0.9996671676635742,refund_status,0.585898220539093
+TKT000217461,Please help - checkout did not complete properly. I need this resolved soon. #help,payment_issue,neutral,NEGATIVE,0.9991790652275085,refund_status,0.38887184858322144
+TKT000711226,I need assistance because my parcel may be lost. It is around 10 days beyond the expected delivery date. Thank you. ...,lost_parcel,negative,NEGATIVE,0.9902984499931335,lost_parcel,0.4740964472293854
+TKT000305276,"Hi, the card payment is incorrect. I need this resolved soon. ...",payment_issue,neutral,NEGATIVE,0.999276340007782,wrong_item,0.8568328619003296
+TKT000888483,Please help - I have a question about compatibility. Thank you. !!!,product_question,positive,POSITIVE,0.9997738003730774,product_question,0.6476922035217285
+TKT000928590,Please help - how do I make a warranty claim. I need this resolved soon. #help,warranty,negative,NEGATIVE,0.9954113364219666,refund_status,0.4715203642845154
+TKT000083950,"Support team, I need help with the warranty. Please advise. ...",warranty,positive,POSITIVE,0.5443640947341919,warranty,0.36350858211517334
+TKT000096610,"Hi, how do I make a warranty claim. Can you confirm the next step? ...",warranty,negative,NEGATIVE,0.8256537914276123,refund_status,0.5038985013961792
+TKT000958415,"hi, is this fault covered. can you confirm the next step? asap",warranty,neutral,NEGATIVE,0.9983527660369873,product_question,0.17514804005622864
+TKT000405480,"Hi, the product stopped working under warranty. Thanks.",warranty,negative,NEGATIVE,0.9990484118461609,product_question,0.31609001755714417
+TKT000082178,"Hello, the courier says the parcel cannot be found. It is around 9 days beyond the expected delivery date. I need this resolved soon. !!!",lost_parcel,neutral,NEGATIVE,0.9971532821655273,lost_parcel,0.8232183456420898
+TKT000316476,Can someone check this? the delivery has disappeared from tracking. It is around 18 days beyond the expected delivery date. Can you confirm the next step? ASAP,lost_parcel,negative,NEGATIVE,0.9991053938865662,lost_parcel,0.5534539818763733
+TKT000123894,"Hello, the product stopped working under warranty. Can you confirm the next step? #help",warranty,neutral,NEGATIVE,0.9996621608734131,refund_status,0.5517896413803101
+TKT000823986,"Support team, my parcel may be lost. It is around 14 days beyond the expected delivery date. I need this resolved soon.",lost_parcel,negative,NEGATIVE,0.9991533756256104,lost_parcel,0.5656664371490479
+TKT000357119,"Support team, tracking stopped several days ago. It is around 11 days beyond the expected delivery date. Please advise. pls",lost_parcel,negative,NEGATIVE,0.9957191348075867,product_question,0.21394945681095123
+TKT000065084,"Hi, tracking stopped several days ago. It is around 15 days beyond the expected delivery date. Thanks.",lost_parcel,neutral,NEGATIVE,0.8245705962181091,product_question,0.14929312467575073
+TKT000706920,Please help - tracking stopped several days ago. It is around 13 days beyond the expected delivery date. Can you confirm the next step? !!!,lost_parcel,neutral,NEGATIVE,0.9949201941490173,refund_status,0.229310542345047
+TKT000529116,"Support team, the courier says the parcel cannot be found. It is around 16 days beyond the expected delivery date. Please get back to me. ...",lost_parcel,negative,NEGATIVE,0.998314619064331,lost_parcel,0.9354367852210999

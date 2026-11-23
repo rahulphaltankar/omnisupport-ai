@@ -1,0 +1,97 @@
+{
+  "config": {
+    "base_model": "distilbert/distilbert-base-uncased",
+    "batch_size": 32,
+    "epochs": 2,
+    "labels": [
+      "account_access",
+      "damaged_item",
+      "delivery_late",
+      "lost_parcel",
+      "payment_issue",
+      "product_question",
+      "refund_status",
+      "return_request",
+      "warranty",
+      "wrong_item"
+    ],
+    "lr": 5e-05,
+    "max_length": 64,
+    "n_test": 1486,
+    "n_train": 6932,
+    "n_val": 1486,
+    "text": "issue_description only (same for TF-IDF)",
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.01
+  },
+  "duration_s": 1304.38,
+  "extra": {
+    "results": [
+      {
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "model": "TF-IDF(1-2gram)+LogReg",
+        "ms_per_example": 0.03317422614261147,
+        "split": "test clean",
+        "train_seconds": 0.3022625999292359,
+        "trainable_params": 20540.0
+      },
+      {
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "model": "DistilBERT fine-tuned",
+        "ms_per_example": 16.424948317631777,
+        "split": "test clean",
+        "train_seconds": 1246.5288666000124,
+        "trainable_params": 66961162.0
+      },
+      {
+        "accuracy": 0.9912516823687753,
+        "macro_f1": 0.989965619959855,
+        "model": "TF-IDF(1-2gram)+LogReg",
+        "ms_per_example": NaN,
+        "split": "test noisy (typos/UPPERCASE)",
+        "train_seconds": NaN,
+        "trainable_params": NaN
+      },
+      {
+        "accuracy": 0.901749663526245,
+        "macro_f1": 0.9067080107869341,
+        "model": "DistilBERT fine-tuned",
+        "ms_per_example": NaN,
+        "split": "test noisy (typos/UPPERCASE)",
+        "train_seconds": NaN,
+        "trainable_params": NaN
+      }
+    ]
+  },
+  "git_commit": "9f48f77",
+  "hardware": {
+    "cpu_count": 12,
+    "gpu": "none (CPU only)",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "libraries": {
+    "faiss": "1.13.2",
+    "fastapi": "0.136.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "pydantic": "2.13.1",
+    "python": "3.14.5",
+    "sklearn": "1.8.0",
+    "torch": "2.11.0+cpu",
+    "torchvision": "0.26.0+cpu",
+    "transformers": "5.5.4"
+  },
+  "limitations": [
+    "CPU-only fine-tuning, 2 epochs.",
+    "Text is templated; both models near ceiling so the comparison is informative mainly on robustness, latency and cost.",
+    "Label ambiguity (delivery_late vs lost_parcel) bounds achievable accuracy."
+  ],
+  "model_version": "omnisupport-models-v1.0.0/distilbert-issue",
+  "run": "transformer_finetune",
+  "seed": 42,
+  "split_method": "stratified 70/15/15 by issue_category, seed 42; identical rows for TF-IDF and DistilBERT",
+  "started_utc": "2026-11-23T13:34:31+00:00",
+  "status": "completed"
+}

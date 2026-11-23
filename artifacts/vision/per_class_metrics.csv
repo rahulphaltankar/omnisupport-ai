@@ -1,0 +1,9 @@
+model,class,precision,recall,f1-score,support
+basic_cnn,damaged,1.0,1.0,1.0,18.0
+basic_cnn,normal,1.0,1.0,1.0,18.0
+basic_cnn,packaging_damage,1.0,1.0,1.0,18.0
+basic_cnn,wrong_item,1.0,1.0,1.0,18.0
+resnet18_transfer,damaged,1.0,1.0,1.0,18.0
+resnet18_transfer,normal,1.0,1.0,1.0,18.0
+resnet18_transfer,packaging_damage,1.0,1.0,1.0,18.0
+resnet18_transfer,wrong_item,1.0,1.0,1.0,18.0

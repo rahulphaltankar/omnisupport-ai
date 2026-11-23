@@ -1,0 +1,84 @@
+{
+  "base_model": "distilbert/distilbert-base-uncased",
+  "config": {
+    "base_model": "distilbert/distilbert-base-uncased",
+    "batch_size": 32,
+    "epochs": 2,
+    "labels": [
+      "account_access",
+      "damaged_item",
+      "delivery_late",
+      "lost_parcel",
+      "payment_issue",
+      "product_question",
+      "refund_status",
+      "return_request",
+      "warranty",
+      "wrong_item"
+    ],
+    "lr": 5e-05,
+    "max_length": 64,
+    "n_test": 1486,
+    "n_train": 6932,
+    "n_val": 1486,
+    "text": "issue_description only (same for TF-IDF)",
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.01
+  },
+  "epochs": 2,
+  "hardware": {
+    "cpu_count": 12,
+    "device": "cpu",
+    "gpu": "none"
+  },
+  "n_train": 6932,
+  "paired": {
+    "both_correct": 1486,
+    "both_wrong": 0,
+    "only_distilbert_correct": 0,
+    "only_tfidf_correct": 0
+  },
+  "results": [
+    {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "model": "TF-IDF(1-2gram)+LogReg",
+      "ms_per_example": 0.03317422614261147,
+      "split": "test clean",
+      "train_seconds": 0.3022625999292359,
+      "trainable_params": 20540.0
+    },
+    {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "model": "DistilBERT fine-tuned",
+      "ms_per_example": 16.424948317631777,
+      "split": "test clean",
+      "train_seconds": 1246.5288666000124,
+      "trainable_params": 66961162.0
+    },
+    {
+      "accuracy": 0.9912516823687753,
+      "macro_f1": 0.989965619959855,
+      "model": "TF-IDF(1-2gram)+LogReg",
+      "ms_per_example": NaN,
+      "split": "test noisy (typos/UPPERCASE)",
+      "train_seconds": NaN,
+      "trainable_params": NaN
+    },
+    {
+      "accuracy": 0.901749663526245,
+      "macro_f1": 0.9067080107869341,
+      "model": "DistilBERT fine-tuned",
+      "ms_per_example": NaN,
+      "split": "test noisy (typos/UPPERCASE)",
+      "train_seconds": NaN,
+      "trainable_params": NaN
+    }
+  ],
+  "seed": 42,
+  "test_evaluations_performed": 1,
+  "top_distilbert_confusions": [],
+  "train_seconds": 1246.5288666000124,
+  "weights": "models/hf_distilbert_issue (git-ignored; regenerate with scripts/10_finetune_transformer.py)"
+}

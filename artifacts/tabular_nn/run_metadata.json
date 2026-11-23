@@ -1,0 +1,127 @@
+{
+  "config": {
+    "batch_size": 2048,
+    "configs": {
+      "A_adam_noreg": {
+        "dropout": 0.0,
+        "hidden": [
+          128,
+          64
+        ],
+        "lr": 0.001,
+        "opt": "adam",
+        "sched": null,
+        "wd": 0.0
+      },
+      "B_adam_dropout_wd": {
+        "dropout": 0.3,
+        "hidden": [
+          128,
+          64
+        ],
+        "lr": 0.001,
+        "opt": "adam",
+        "sched": null,
+        "wd": 0.0001
+      },
+      "C_sgd_momentum": {
+        "dropout": 0.3,
+        "hidden": [
+          128,
+          64
+        ],
+        "lr": 0.05,
+        "opt": "sgd",
+        "sched": null,
+        "wd": 0.0001
+      },
+      "D_adamw_plateau": {
+        "dropout": 0.3,
+        "hidden": [
+          128,
+          64
+        ],
+        "lr": 0.003,
+        "opt": "adamw",
+        "sched": "plateau",
+        "wd": 0.01
+      },
+      "E_big_noreg_overfit_probe": {
+        "dropout": 0.0,
+        "hidden": [
+          512,
+          512,
+          256
+        ],
+        "lr": 0.002,
+        "opt": "adam",
+        "sched": null,
+        "wd": 0.0
+      }
+    },
+    "epochs": 25,
+    "features": [
+      "customer_tenure_months",
+      "order_value",
+      "delivery_delay_days",
+      "previous_ticket_count",
+      "attachment_available",
+      "hour",
+      "dayofweek",
+      "month",
+      "is_weekend",
+      "is_night",
+      "desc_len",
+      "desc_words",
+      "desc_upper_ratio",
+      "desc_exclaim",
+      "desc_missing",
+      "desc_days_mentioned",
+      "desc_urgent_phrase",
+      "desc_mobile_footer",
+      "log_order_value",
+      "delay_x_prev_tickets",
+      "value_x_delay",
+      "tenure_bucket_new",
+      "repeat_contact",
+      "support_channel",
+      "customer_region",
+      "product_category",
+      "issue_title"
+    ],
+    "loss": "BCEWithLogits"
+  },
+  "duration_s": 2047.5,
+  "extra": {
+    "best": "B_adam_dropout_wd",
+    "test_pr_auc": 0.5726755135496221
+  },
+  "git_commit": "9f48f77",
+  "hardware": {
+    "cpu_count": 12,
+    "gpu": "none (CPU only)",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "libraries": {
+    "faiss": "1.13.2",
+    "fastapi": "0.136.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "pydantic": "2.13.1",
+    "python": "3.14.5",
+    "sklearn": "1.8.0",
+    "torch": "2.11.0+cpu",
+    "torchvision": "0.26.0+cpu",
+    "transformers": "5.5.4"
+  },
+  "limitations": [
+    "CPU-only; 25 epochs.",
+    "Single seed per configuration (plus one reproducibility rerun)."
+  ],
+  "model_version": "omnisupport-models-v1.0.0/tabular-mlp",
+  "run": "tabular_nn",
+  "seed": 42,
+  "split_method": "temporal train/val/test identical to classical models; preprocessor fitted on train only",
+  "started_utc": "2026-11-23T11:54:57+00:00",
+  "status": "completed"
+}

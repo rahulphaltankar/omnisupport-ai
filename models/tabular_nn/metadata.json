@@ -1,0 +1,25 @@
+{
+  "best_epoch": 20,
+  "config_name": "B_adam_dropout_wd",
+  "feature_version": "T0-features-v1 (27 columns)",
+  "input_dim": 76,
+  "model_version": "omnisupport-models-v1.0.0/tabular-mlp",
+  "seed": 42,
+  "test_metrics": {
+    "base_rate": 0.30694910883903503,
+    "brier": 0.17935745418071747,
+    "f1": 0.5498042745884311,
+    "flag_rate": 0.5729956793086894,
+    "fn": 10840,
+    "fp": 55174,
+    "pr_auc": 0.5726755135496221,
+    "precision": 0.4221649700473378,
+    "recall": 0.7880742913000978,
+    "roc_auc": 0.7332913737352859,
+    "threshold": 0.23,
+    "tn": 60316,
+    "tp": 40310
+  },
+  "torch": "2.11.0+cpu",
+  "val_pr_auc": 0.5750942072053525
+}

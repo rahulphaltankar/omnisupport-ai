@@ -33,6 +33,8 @@ BASE = "distilbert/distilbert-base-uncased"
 
 
 def noisy(s: str, rng: np.random.Generator) -> str:
+    if not s:
+        return s
     ch = list(s)
     for _ in range(max(1, len(ch) // 20)):
         i = int(rng.integers(0, len(ch))); ch[i] = chr(ord("a") + int(rng.integers(0, 26)))
@@ -52,7 +54,7 @@ def hf_predict(model, tok, texts, bs=64, max_len=64):
 def main() -> None:
     ap = argparse.ArgumentParser(); ap.add_argument("--epochs", type=int, default=2); ap.add_argument("--max_train", type=int, default=0); args = ap.parse_args()
     out = artifact_dir("transformer_finetune")
-    df = pd.read_parquet(SUBSET_PATH).dropna(subset=["issue_description", "issue_category"]); df["issue_description"] = df["issue_description"].astype(str)
+    df = pd.read_parquet(SUBSET_PATH).dropna(subset=["issue_description", "issue_category"]); df["issue_description"] = df["issue_description"].astype(str); df = df[df["issue_description"].str.strip().str.len() > 0]  # blank messages carry no text signal
     labels = sorted(df["issue_category"].unique()); l2i = {l: i for i, l in enumerate(labels)}
     tr, rest = train_test_split(df, test_size=0.30, stratify=df["issue_category"], random_state=SEED)
     va, te = train_test_split(rest, test_size=0.50, stratify=rest["issue_category"], random_state=SEED)

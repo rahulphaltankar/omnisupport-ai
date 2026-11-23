@@ -1,0 +1,74 @@
+{
+  "config": {
+    "augmentation": "affine rot+-12deg/shift 8%/scale 0.9-1.1, hflip, brightness/contrast +-20%, gaussian noise 0.01 (train only)",
+    "classes": [
+      "damaged",
+      "normal",
+      "packaging_damage",
+      "wrong_item"
+    ],
+    "cnn": "BasicCNN 4 blocks, AdamW lr 3e-3 OneCycle, 40 epochs",
+    "seeds_for_variance": [
+      42,
+      43,
+      44
+    ],
+    "split": "stratified 70/15/15 (336/72/72), seed 42",
+    "transfer": "ResNet18 ImageNet, layer4+head trainable, AdamW (5e-4 / 3e-3), 12 epochs, input resized to 128"
+  },
+  "duration_s": 1167.68,
+  "extra": {
+    "summary": [
+      {
+        "model": "basic_cnn",
+        "ms_per_image": 3.0633083321542167,
+        "params_total": 146900,
+        "params_trainable": 146900,
+        "test_acc_seed42": 1.0,
+        "test_macro_f1_mean_3seeds": 1.0,
+        "test_macro_f1_seed42": 1.0,
+        "test_macro_f1_std_3seeds": 0.0,
+        "train_seconds_mean": 154.86178316672644
+      },
+      {
+        "model": "resnet18_transfer",
+        "ms_per_image": 10.768737500054867,
+        "params_total": 11178564,
+        "params_trainable": 8395780,
+        "test_acc_seed42": 1.0,
+        "test_macro_f1_mean_3seeds": 1.0,
+        "test_macro_f1_seed42": 1.0,
+        "test_macro_f1_std_3seeds": 0.0,
+        "train_seconds_mean": 87.66710833332036
+      }
+    ]
+  },
+  "git_commit": "9f48f77",
+  "hardware": {
+    "cpu_count": 12,
+    "gpu": "none (CPU only)",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "libraries": {
+    "faiss": "1.13.2",
+    "fastapi": "0.136.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "pydantic": "2.13.1",
+    "python": "3.14.5",
+    "sklearn": "1.8.0",
+    "torch": "2.11.0+cpu",
+    "torchvision": "0.26.0+cpu",
+    "transformers": "5.5.4"
+  },
+  "limitations": [
+    "480 synthetic, near-templated images: results do NOT transfer to real photographs.",
+    "Test set has only 72 images (18/class): one error = 1.4 points of accuracy; use seed spread, not single numbers."
+  ],
+  "model_version": "omnisupport-models-v1.0.0/vision",
+  "run": "vision",
+  "seed": 42,
+  "split_method": "stratified 70/15/15 by class, fixed seed; identical for both models",
+  "started_utc": "2026-11-23T12:29:29+00:00",
+  "status": "completed"
+}

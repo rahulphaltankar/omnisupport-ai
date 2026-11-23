@@ -1,0 +1,8 @@
+{
+  "n": 100,
+  "sentiment_ms_per_message": 20.421418000478297,
+  "sentiment_negative_share": 0.85,
+  "zero_shot_accuracy_vs_gold": 0.38,
+  "zero_shot_macro_f1_vs_gold": 0.39274891774891774,
+  "zero_shot_ms_per_message": 207.3902880004607
+}

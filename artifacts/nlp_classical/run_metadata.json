@@ -1,0 +1,54 @@
+{
+  "config": {
+    "target": "issue_category",
+    "text": "issue_title + description",
+    "train_rows": 120000,
+    "vectorisers": [
+      "CountVectorizer(BoW)",
+      "TfidfVectorizer",
+      "TF-IDF word 1-2gram",
+      "TF-IDF word + char 3-5gram"
+    ]
+  },
+  "duration_s": 858.82,
+  "extra": {
+    "best": "bow_counts_unigram+logreg",
+    "semantic": {
+      "corpus_size": 6000,
+      "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "embedding_precision@5": 0.63,
+      "encode_seconds": 68.07571760006249,
+      "queries": 20,
+      "tfidf_precision@5": 0.55
+    },
+    "test_macro_f1": 1.0
+  },
+  "git_commit": "9f48f77",
+  "hardware": {
+    "cpu_count": 12,
+    "gpu": "none (CPU only)",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "libraries": {
+    "faiss": "1.13.2",
+    "fastapi": "0.136.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "pydantic": "2.13.1",
+    "python": "3.14.5",
+    "sklearn": "1.8.0",
+    "torch": "2.11.0+cpu",
+    "torchvision": "0.26.0+cpu",
+    "transformers": "5.5.4"
+  },
+  "limitations": [
+    "Messages are templated: high accuracy reflects synthetic generation, not real-world language difficulty.",
+    "Remaining errors are label ambiguity between delivery_late and lost_parcel, not model weakness."
+  ],
+  "model_version": "omnisupport-models-v1.0.0/tfidf-lr",
+  "run": "nlp_classical",
+  "seed": 42,
+  "split_method": "temporal split; train sample 120k from train period; selection on validation; single test evaluation",
+  "started_utc": "2026-11-23T13:36:20+00:00",
+  "status": "completed"
+}

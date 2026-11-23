@@ -63,7 +63,9 @@ QUERIES = [  # hand-written free-text probes (NOT drawn from the data) with the 
 
 def main() -> None:
     out = artifact_dir("nlp_classical")
-    frame = C.modelling_frame(); parts = C.split_frame(frame)
+    frame = C.modelling_frame()
+    frame["issue_description"] = frame["ticket_id"].map(C.load_clean().set_index("ticket_id")["issue_description"])  # raw text lives in the clean table, not the feature frame
+    parts = C.split_frame(frame)
     tr, va, te = (parts[k][parts[k]["desc_missing"] == 0] for k in ("train", "val", "test"))  # rows with a message; blanks handled via title-only in the API
     trs = tr.sample(120_000, random_state=SEED)
     with RunRecord(out, "nlp_classical", config={"target": TARGET, "train_rows": len(trs), "text": "issue_title + description", "vectorisers": ["CountVectorizer(BoW)", "TfidfVectorizer", "TF-IDF word 1-2gram", "TF-IDF word + char 3-5gram"]},
@@ -136,7 +138,7 @@ def main() -> None:
         rows, shown = [], []
         for i, (q, gold, kind) in enumerate(QUERIES):
             te5 = np.argsort(-sims_e[i])[:5]; tt5 = np.argsort(-sims_t[i])[:5]
-            pe = float((corpus[TARGET].values[te5] == gold).mean()); pt_ = float((corpus[TARGET].values[tt5] == gold).mean())
+            pe = float(np.mean(corpus[TARGET].astype(str).values[te5] == gold)); pt_ = float(np.mean(corpus[TARGET].astype(str).values[tt5] == gold))
             rows.append({"query": q, "expected_category": gold, "difficulty_label": kind, "embedding_precision@5": pe, "tfidf_precision@5": pt_, "embedding_top_score": float(sims_e[i][te5[0]]), "tfidf_top_score": float(sims_t[i][tt5[0]]),
                          "embedding_top_category": corpus[TARGET].values[te5[0]], "tfidf_top_category": corpus[TARGET].values[tt5[0]], "embedding_top1_text": corpus["text"].values[te5[0]]})
         sr = pd.DataFrame(rows); sr.to_csv(out / "semantic_search_eval.csv", index=False)

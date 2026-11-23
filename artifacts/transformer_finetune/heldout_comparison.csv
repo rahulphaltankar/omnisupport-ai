@@ -1,0 +1,5 @@
+model,split,accuracy,macro_f1,train_seconds,ms_per_example,trainable_params
+TF-IDF(1-2gram)+LogReg,test clean,1.0,1.0,0.3022625999292359,0.03317422614261147,20540.0
+DistilBERT fine-tuned,test clean,1.0,1.0,1246.5288666000124,16.424948317631777,66961162.0
+TF-IDF(1-2gram)+LogReg,test noisy (typos/UPPERCASE),0.9912516823687753,0.989965619959855,,,
+DistilBERT fine-tuned,test noisy (typos/UPPERCASE),0.901749663526245,0.9067080107869341,,,

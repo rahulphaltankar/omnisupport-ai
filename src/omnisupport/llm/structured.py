@@ -11,7 +11,7 @@ from pydantic import ValidationError
 from omnisupport.config import PROMPT_VERSION
 from omnisupport.llm.client import BaseProvider, ProviderError, RulesProvider
 from omnisupport.llm.prompts import build_messages
-from omnisupport.llm.rules import ORDER_RE
+from omnisupport.llm.rules import ORDER_RE, run_rules
 from omnisupport.llm.schemas import SCHEMAS
 from omnisupport.utils.privacy import redact
 
@@ -68,6 +68,14 @@ def _guardrails(task: str, data: dict, message: str) -> list[str]:
             mi = list(data.get("missing_information") or [])
             if "order_id" not in mi: mi.append("order_id")
             data["missing_information"] = mi
+    # Safety invariants enforced in code, never left to the model: a model may only make these *stricter*.
+    if task in ("action_proposal", "secret_guard", "escalation_summary", "account_risk"):
+        floor = run_rules(task, message)
+        keys = {"action_proposal": "needs_human_approval", "secret_guard": "prohibited_request_detected", "escalation_summary": "safety_risk", "account_risk": "needs_human_review"}
+        k = keys[task]
+        if floor.get(k) is True and data.get(k) is not True:
+            data[k] = True
+            flags.append(f"{k}_forced_by_policy")
     return flags
 
 

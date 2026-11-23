@@ -1,0 +1,44 @@
+{
+  "config": {
+    "n": 100,
+    "sentiment_model": "distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+    "zero_shot_model": "typeform/distilbert-base-uncased-mnli"
+  },
+  "duration_s": 25.07,
+  "extra": {
+    "n": 100,
+    "sentiment_ms_per_message": 20.421418000478297,
+    "sentiment_negative_share": 0.85,
+    "zero_shot_accuracy_vs_gold": 0.38,
+    "zero_shot_macro_f1_vs_gold": 0.39274891774891774,
+    "zero_shot_ms_per_message": 207.3902880004607
+  },
+  "git_commit": "9f48f77",
+  "hardware": {
+    "cpu_count": 12,
+    "gpu": "none (CPU only)",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "libraries": {
+    "faiss": "1.13.2",
+    "fastapi": "0.136.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "pydantic": "2.13.1",
+    "python": "3.14.5",
+    "sklearn": "1.8.0",
+    "torch": "2.11.0+cpu",
+    "torchvision": "0.26.0+cpu",
+    "transformers": "5.5.4"
+  },
+  "limitations": [
+    "SST-2 sentiment is trained on movie reviews; support text is out-of-domain.",
+    "Zero-shot NLI needs one forward pass per label (10x cost)."
+  ],
+  "model_version": "distilbert/distilbert-base-uncased-finetuned-sst-2-english | typeform/distilbert-base-uncased-mnli",
+  "run": "pretrained_pipelines",
+  "seed": 42,
+  "split_method": "n/a (inference only on 100 balanced rows)",
+  "started_utc": "2026-11-23T13:07:00+00:00",
+  "status": "completed"
+}

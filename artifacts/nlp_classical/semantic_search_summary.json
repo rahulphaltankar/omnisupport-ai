@@ -1,0 +1,8 @@
+{
+  "corpus_size": 6000,
+  "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_precision@5": 0.63,
+  "encode_seconds": 68.07571760006249,
+  "queries": 20,
+  "tfidf_precision@5": 0.55
+}

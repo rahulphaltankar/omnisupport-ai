@@ -1,0 +1,12 @@
+vectoriser,classifier,val_macro_f1,val_accuracy,fit_seconds
+bow_counts_unigram,logreg,1.0,1.0,9.224275199929252
+bow_counts_unigram,linear_svc,1.0,1.0,23.08910969994031
+bow_counts_unigram,naive_bayes,1.0,1.0,6.994450099999085
+tfidf_unigram,logreg,1.0,1.0,9.193609999958426
+tfidf_unigram,linear_svc,1.0,1.0,20.95527180004865
+tfidf_unigram,naive_bayes,1.0,1.0,7.131707099964842
+tfidf_word_1-2gram,logreg,1.0,1.0,15.896095999982208
+tfidf_word_1-2gram,linear_svc,1.0,1.0,43.948466799920425
+tfidf_word_1-2gram,naive_bayes,1.0,1.0,13.048022100003436
+tfidf_word+char_3-5,logreg,1.0,1.0,76.37233919999562
+tfidf_word+char_3-5,linear_svc,1.0,1.0,135.8595991000766

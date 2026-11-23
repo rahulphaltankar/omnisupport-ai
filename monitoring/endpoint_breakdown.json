@@ -1,0 +1,103 @@
+{
+  "summary": {
+    "request_count": 47,
+    "average_latency_ms": 780.53,
+    "failure_count": 2,
+    "rag_no_answer_rate": 0.1667,
+    "agent_tool_failure_count": 2,
+    "model_version": "omnisupport-models-v1.0.0",
+    "prompt_version": "prompts-v1.0.0"
+  },
+  "by_endpoint": {
+    "/rag/ask": {
+      "requests": 18,
+      "failures": 0,
+      "avg_latency_ms": 1803.04
+    },
+    "/agent/run": {
+      "requests": 11,
+      "failures": 0,
+      "avg_latency_ms": 63.92
+    },
+    "/tickets/extract": {
+      "requests": 10,
+      "failures": 0,
+      "avg_latency_ms": 2.03
+    },
+    "/tickets/predict": {
+      "requests": 3,
+      "failures": 0,
+      "avg_latency_ms": 1146.02
+    },
+    "/vision/predict": {
+      "requests": 5,
+      "failures": 2,
+      "avg_latency_ms": 13.72
+    }
+  },
+  "http_status_by_group": {
+    "rag": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "agent": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "extract": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "predict": [
+      200,
+      200,
+      200
+    ],
+    "vision_invalid": [
+      404,
+      400
+    ],
+    "vision": [
+      200,
+      200,
+      200
+    ],
+    "invalid_payloads": [
+      422
+    ]
+  },
+  "workload_note": "public eval cases + own probes + one injected order-store outage; 422s are rejected by schema validation before the handler"
+}

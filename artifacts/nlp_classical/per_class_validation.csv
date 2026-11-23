@@ -1,0 +1,14 @@
+,precision,recall,f1-score,support
+account_access,1.0,1.0,1.0,12990.0
+damaged_item,1.0,1.0,1.0,24960.0
+delivery_late,1.0,1.0,1.0,36359.0
+lost_parcel,1.0,1.0,1.0,6585.0
+payment_issue,1.0,1.0,1.0,13148.0
+product_question,1.0,1.0,1.0,11530.0
+refund_status,1.0,1.0,1.0,19650.0
+return_request,1.0,1.0,1.0,16576.0
+warranty,1.0,1.0,1.0,6697.0
+wrong_item,1.0,1.0,1.0,16399.0
+accuracy,1.0,1.0,1.0,1.0
+macro avg,1.0,1.0,1.0,164894.0
+weighted avg,1.0,1.0,1.0,164894.0

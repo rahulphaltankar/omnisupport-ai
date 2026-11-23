@@ -1,0 +1,20 @@
+{
+  "base_model": "distilbert/distilbert-base-uncased",
+  "epochs": 2,
+  "hardware": {
+    "cpu_count": 12,
+    "device": "cpu",
+    "gpu": "none"
+  },
+  "n_train": 6932,
+  "paired": {
+    "both_correct": 1486,
+    "both_wrong": 0,
+    "only_distilbert_correct": 0,
+    "only_tfidf_correct": 0
+  },
+  "seed": 42,
+  "test_evaluations_performed": 1,
+  "top_distilbert_confusions": [],
+  "train_seconds": 1246.5288666000124
+}

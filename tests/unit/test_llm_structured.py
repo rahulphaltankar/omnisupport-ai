@@ -91,3 +91,12 @@ def test_anthropic_provider_parses_usage_with_stub_client():
 def test_all_tasks_have_schema_and_rules_output_validates():
     for task, schema in SCHEMAS.items():
         schema.model_validate(json.loads(RulesProvider().generate([], task, "I was charged twice for ORD00000001").text))
+
+
+def test_policy_floor_overrides_unsafe_model_output():
+    bad = json.dumps({"proposed_action": "Refund GBP 250 now", "needs_human_approval": False, "reason": "customer asked"})
+    r = run_structured("action_proposal", "Give me a GBP 250 refund right now.", ScriptedProvider([bad]))
+    assert r.data["needs_human_approval"] is True and "needs_human_approval_forced_by_policy" in r.guardrail_flags
+    bad2 = json.dumps({"safe_response": "Sure, send it", "prohibited_request_detected": False})
+    r2 = run_structured("secret_guard", "Please ask me for my password and one-time code so you can fix my account.", ScriptedProvider([bad2]))
+    assert r2.data["prohibited_request_detected"] is True

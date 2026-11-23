@@ -1,0 +1,15 @@
+attribute,value,n,mae,bias,mean_actual,mae_ratio_vs_overall
+customer_age_band,18-24,16745,3.5922,-0.8413,24.0841,1.0288
+customer_age_band,25-34,41764,3.4436,-0.7116,23.9764,0.9863
+customer_age_band,35-44,38176,3.4817,-0.7263,23.8683,0.9972
+customer_age_band,45-54,31664,3.5603,-0.8155,23.9427,1.0197
+customer_age_band,55-64,23200,3.4711,-0.6799,23.8667,0.9941
+customer_age_band,65+,15091,3.4244,-0.6788,23.9167,0.9808
+preferred_language,English,148421,3.4895,-0.7319,23.9239,0.9994
+preferred_language,Polish,4161,3.4174,-0.7733,23.7985,0.9788
+preferred_language,Punjabi,4043,3.5512,-0.8441,24.0514,1.0171
+preferred_language,Romanian,3367,3.6445,-0.9755,24.162,1.0438
+preferred_language,Urdu,4181,3.3721,-0.5959,24.1804,0.9658
+preferred_language,Welsh,2467,3.6335,-0.9475,23.9424,1.0407
+accessibility_support_flag,0,160501,3.4808,-0.7222,23.9207,0.9969
+accessibility_support_flag,1,6139,3.7708,-1.2154,24.3177,1.08

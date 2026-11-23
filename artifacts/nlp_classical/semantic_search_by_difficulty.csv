@@ -1,0 +1,4 @@
+difficulty_label,embedding_precision@5,tfidf_precision@5,n
+ambiguous,0.25,0.5,4
+good,0.7999999999999999,0.6428571428571429,14
+weak,0.2,0.0,2

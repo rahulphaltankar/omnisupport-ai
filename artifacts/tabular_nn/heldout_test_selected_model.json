@@ -1,0 +1,44 @@
+{
+  "classical_selected_test_metrics": {
+    "base_rate": 0.30694911185789725,
+    "brier": 0.17928953745684367,
+    "f1": 0.5523117403834106,
+    "flag_rate": 0.5551368218915026,
+    "fn": 11478,
+    "fp": 52836,
+    "pr_auc": 0.5720397390520242,
+    "pr_auc_ci95_bootstrap50k": [
+      0.5631792236754515,
+      0.5793129956148874
+    ],
+    "precision": 0.42884939680892464,
+    "recall": 0.7756011730205279,
+    "roc_auc": 0.7336875938614058,
+    "roc_auc_ci95_bootstrap50k": [
+      0.7292371935973223,
+      0.7385934856344162
+    ],
+    "threshold": 0.24,
+    "tn": 62654,
+    "tp": 39672
+  },
+  "metrics": {
+    "base_rate": 0.30694910883903503,
+    "brier": 0.17935745418071747,
+    "f1": 0.5498042745884311,
+    "flag_rate": 0.5729956793086894,
+    "fn": 10840,
+    "fp": 55174,
+    "pr_auc": 0.5726755135496221,
+    "precision": 0.4221649700473378,
+    "recall": 0.7880742913000978,
+    "roc_auc": 0.7332913737352859,
+    "threshold": 0.23,
+    "tn": 60316,
+    "tp": 40310
+  },
+  "reproducibility_max_abs_val_loss_diff_3_epochs": 0.0,
+  "selected_config": "B_adam_dropout_wd",
+  "test_evaluations_performed": 1,
+  "threshold_from_validation": 0.23
+}
