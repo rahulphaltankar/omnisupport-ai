@@ -126,9 +126,20 @@ class OpenAICompatProvider(BaseProvider):
             return _json.loads(r.read().decode())
 
     def generate(self, messages, task, raw_message):
-        t0 = time.perf_counter()
+        t0, waited = time.perf_counter(), 0.0
+        for attempt in range(5):  # free tiers rate-limit: wait and retry on HTTP 429 only
+            try:
+                r = self._post({"model": self.model, "messages": messages, "temperature": 0, "max_tokens": self.max_tokens})
+                break
+            except Exception as e:
+                if getattr(e, "code", None) == 429 and attempt < 4 and self._transport is None:
+                    time.sleep(15 * (attempt + 1)); waited += 15 * (attempt + 1)  # waiting is not model latency
+                    continue
+                r = e
+                break
         try:
-            r = self._post({"model": self.model, "messages": messages, "temperature": 0, "max_tokens": self.max_tokens})
+            if isinstance(r, Exception):
+                raise r
             text = r["choices"][0]["message"]["content"] or ""
         except Exception as e:  # never leak the key; the HTTP status and the provider's short error text are safe and useful
             code = getattr(e, "code", None)
@@ -141,7 +152,7 @@ class OpenAICompatProvider(BaseProvider):
             self.last_error = f"HTTP {code} {detail}".strip() if code else type(e).__name__
             raise ProviderError(f"openai_compat request failed: {self.last_error}") from None
         u = r.get("usage") or {}
-        return LLMResponse(text, int(u.get("prompt_tokens", 0)), int(u.get("completion_tokens", 0)), (time.perf_counter() - t0) * 1000, self.model)
+        return LLMResponse(text, int(u.get("prompt_tokens", 0)), int(u.get("completion_tokens", 0)), (time.perf_counter() - t0 - waited) * 1000, self.model)
 
 
 class ScriptedProvider(BaseProvider):

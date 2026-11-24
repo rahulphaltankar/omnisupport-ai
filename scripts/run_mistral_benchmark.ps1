@@ -8,6 +8,6 @@ $env:LLM_API_KEY = [System.Net.NetworkCredential]::new("", $secure).Password.Tri
 $env:LLM_BASE_URL = "https://api.mistral.ai/v1"
 $env:LLM_PRICE_IN_PER_MTOK = "0"; $env:LLM_PRICE_OUT_PER_MTOK = "0"   # free tier
 $env:LLM_PROVIDER = "openai_compat"; $env:PYTHONPATH = "src"
-python scripts/12_llm_benchmark.py --models "api:$Model" --out llm_benchmark_mistral --sleep 2
+python scripts/12_llm_benchmark.py --models "api:$Model" --out llm_benchmark_mistral --sleep 5
 Remove-Item Env:LLM_API_KEY
 Write-Host "Done. Results are in artifacts\llm_benchmark_mistral\summary.csv"
