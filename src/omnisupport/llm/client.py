@@ -105,7 +105,8 @@ class OpenAICompatProvider(BaseProvider):
     name = "openai_compat"
 
     def __init__(self, model_name: str, base_url: str | None = None, api_key: str | None = None, transport=None, timeout_s: float = 60.0, max_tokens: int = 300):
-        self.model, self.timeout_s, self.max_tokens = model_name, timeout_s, max_tokens
+        self.model, self.timeout_s = model_name, timeout_s
+        self.max_tokens = int(os.getenv("LLM_MAX_NEW_TOKENS", max_tokens))  # models that "think" first (e.g. Gemini 2.5) need a bigger budget
         self.base_url = (base_url or os.getenv("LLM_BASE_URL", "")).rstrip("/")
         self._key = (api_key or LLMSettings().api_key or "").strip().strip('"').strip("'") or None
         self._transport = transport
