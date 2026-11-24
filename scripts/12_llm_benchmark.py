@@ -36,6 +36,11 @@ def checks(r, res):
 rows = []
 for m in a.models.split(","):
     prov = RulesProvider() if m == "rules" else OpenAICompatProvider(m[4:]) if m.startswith("api:") else LocalHFProvider(m)  # "api:<model>" uses LLM_BASE_URL/LLM_API_KEY
+    if m.startswith("api:"):  # fail loudly instead of silently benchmarking the rules fallback
+        try:
+            prov.generate([{"role": "user", "content": "Reply with the word OK."}], "extraction", "ok")
+        except Exception as e:
+            sys.exit(f"STOP: the hosted model did not answer ({e}). Nothing was benchmarked.")
     if m != "rules": run_structured("extraction", "warm up ORD00000001 late", prov)  # exclude one-off warm-up from timings
     for r in reqs:
         res = run_structured(r["task"], r["text"], prov)

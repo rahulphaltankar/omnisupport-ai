@@ -107,7 +107,7 @@ class OpenAICompatProvider(BaseProvider):
     def __init__(self, model_name: str, base_url: str | None = None, api_key: str | None = None, transport=None, timeout_s: float = 60.0, max_tokens: int = 300):
         self.model, self.timeout_s, self.max_tokens = model_name, timeout_s, max_tokens
         self.base_url = (base_url or os.getenv("LLM_BASE_URL", "")).rstrip("/")
-        self._key = api_key or LLMSettings().api_key
+        self._key = (api_key or LLMSettings().api_key or "").strip().strip('"').strip("'") or None
         self._transport = transport
         if not self.base_url or not model_name:
             raise ProviderError("set LLM_BASE_URL and MODEL_NAME for the openai_compat provider")
@@ -130,8 +130,16 @@ class OpenAICompatProvider(BaseProvider):
         try:
             r = self._post({"model": self.model, "messages": messages, "temperature": 0, "max_tokens": self.max_tokens})
             text = r["choices"][0]["message"]["content"] or ""
-        except Exception as e:  # never leak the key or response body
-            raise ProviderError(f"openai_compat request failed: {type(e).__name__}") from None
+        except Exception as e:  # never leak the key; the HTTP status and the provider's short error text are safe and useful
+            code = getattr(e, "code", None)
+            detail = ""
+            if hasattr(e, "read"):
+                try:
+                    detail = e.read().decode("utf-8", "replace")[:160]
+                except Exception:
+                    detail = ""
+            self.last_error = f"HTTP {code} {detail}".strip() if code else type(e).__name__
+            raise ProviderError(f"openai_compat request failed: {self.last_error}") from None
         u = r.get("usage") or {}
         return LLMResponse(text, int(u.get("prompt_tokens", 0)), int(u.get("completion_tokens", 0)), (time.perf_counter() - t0) * 1000, self.model)
 
