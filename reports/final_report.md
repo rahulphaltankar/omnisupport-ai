@@ -14,7 +14,7 @@ An end-to-end prototype for a retail-support operation, built from the student p
 | 3 Segmentation, tabular NN | k=6, silhouette 0.186. NN PR-AUC 0.5727, no gain over classical; overfit probe shows a +0.18 loss gap | `segmentation_report.md`, `tabular_nn_report.md` | seeded re-run reproduces val loss | Clusters are weak |
 | 4 Vision | CNN and ResNet18 both 1.0 clean; robustness and data-size curves separate them | `vision_report.md` | 3 seeds | 72 synthetic test images |
 | 5 NLP | BoW/TF-IDF tie at 1.0; semantic search p@5 0.63 vs 0.55; attention worked example; 2 pretrained pipelines; DistilBERT fine-tune vs TF-IDF (TF-IDF better on noisy text) | `nlp_classical.md`, `attention_explained.md`, `pretrained_pipelines.md`, `transformer_finetuning.md` | held-out test | Templated text caps all scores |
-| 6 LLM engineering | 8 versioned prompts, Pydantic contracts, repair + fallback + policy floor, 30-request × 3-provider benchmark | `llm_benchmark.md` | regression and unit tests | Hosted API never called; benchmark rows pre-date the policy floor |
+| 6 LLM engineering | 8 versioned prompts, Pydantic contracts, repair + fallback + policy floor, 30-request × 3-provider benchmark | `llm_benchmark.md` | regression and unit tests | Hosted API never called; benchmark re-run with the policy floor active |
 | 7 RAG | Section chunking chosen by comparison; calibrated abstention; conflict, injection and secret guards; index metadata | `rag_report.md` | 14/15 cited hits, 11/12 abstentions | 2 account-takeover misses; TF-IDF fallback abstains on 60 % of questions |
 | 8 Agent | Strict tool schemas, one retry, approval gate, traces | `agent_report.md` | 15/15 correct, 0 executed | Deterministic planner only; 20 % partial refund is an assumption |
 | 9 Guardrails/QA | Evaluation suite, subgroup analysis, risk register | `evaluation_and_guardrails.md`, `subgroup_report.md`, `risk_register.md` | 74 tests, clean venv | Limited attributes |
@@ -25,7 +25,7 @@ An end-to-end prototype for a retail-support operation, built from the student p
 
 1. **More model did not help the tabular tasks.** Logistic regression, gradient boosting and the neural net sit within 0.001 PR-AUC; the deployed model is chosen for cost and explainability.
 2. **Perfect text scores are a property of the data.** The messages are templated, so BoW, TF-IDF and DistilBERT all score 1.0. Under typo noise, TF-IDF (0.991) beat the fine-tuned DistilBERT (0.902).
-3. **Raw small LLMs are unsafe for approval decisions.** Both Qwen models said a GBP 250 refund needed no approval. The code-level policy floor now overrides this; a unit test covers it. The benchmark table shows the raw behaviour, not the corrected one.
+3. **Raw small LLMs are unsafe for approval decisions.** Both Qwen models said a GBP 250 refund needed no approval. The code-level policy floor now overrides this; a unit test covers it. The first-run failures are kept in `reports/llm_benchmark.md`; the re-run with the floor passes them.
 4. **Vision ranking needs stress tests.** A clean test cannot separate the two vision models; corruptions can. Neither is uniformly better.
 5. **Abstention has costs both ways.** 11/12 unsupported probes abstained, but two safety-relevant misses remain, and the TF-IDF fallback refuses 60 % of answerable questions.
 

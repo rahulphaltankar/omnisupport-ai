@@ -16,7 +16,7 @@ Everything below was produced by the scripts in this repository. Numbers are quo
 | Segmentation (k=6) | silhouette 0.186, ARI 0.784 | Weak separation; personas are descriptive |
 | Vision (CNN vs ResNet18) | both 1.0 on clean test; ResNet18 more robust to blur/rotation/darkness; CNN F1 0.52 vs ResNet 0.99 with 10 % data | 72 synthetic test images |
 | NLP text classification | TF-IDF/BoW and DistilBERT 1.0 on clean test; noisy text: TF-IDF 0.991 vs DistilBERT 0.902 | Templated text; ceiling effect |
-| LLM benchmark (30 requests/model) | rules 0.5 ms, 83 %; Qwen2.5-0.5B 9.8 s, 83 %; Qwen2.5-1.5B 29.5 s, 90 % | Cost is an estimate; no hosted API exercised; both Qwen models failed the refund-approval check before the policy floor was added |
+| LLM benchmark (30 requests/model) | rules 0.6 ms, 83 %; Qwen2.5-0.5B 11.7 s, 90 %; Qwen2.5-1.5B 38.2 s, 93 % | Cost is an estimate; no hosted API exercised; both Qwen models failed the refund-approval check before the policy floor was added; the table is the re-run with the floor |
 | RAG | cited-source hit 14/15; 11/12 unanswerable probes abstained | Two account-takeover cases missed |
 | Agent | 15/15 tool and approval decisions correct; 0 actions executed | Deterministic planner |
 | Tests | 74 passed in a clean Python 3.13 venv | Hosted CI and Docker build+smoke passed on GitHub (run 45193973913) |
@@ -69,7 +69,7 @@ docker build -f deployment/Dockerfile -t omnisupport .
 docker run -p 8000:8000 omnisupport
 ```
 
-Endpoints: `/health`, `/tickets/predict`, `/tickets/extract`, `/rag/ask`, `/agent/run`, `/agent/approve`, `/vision/predict`, `/monitoring/summary`, `/meta/categories`. The default LLM provider is the offline `rules` provider; set `LLM_PROVIDER` and the keys documented in `.env.example` to use a model. Keys are read from the environment only.
+Endpoints: `/health`, `/tickets/predict`, `/tickets/extract`, `/rag/ask`, `/agent/run`, `/agent/approve`, `/vision/predict`, `/monitoring/summary`, `/meta/categories`. The default LLM provider is the offline `rules` provider; set `LLM_PROVIDER` and the keys documented in `.env.example` to use a model. Keys are read from the environment only. Free-tier hosted models work through `LLM_PROVIDER=openai_compat` (any OpenAI-style endpoint such as Mistral La Plateforme or Groq; see `.env.example`). No paid service is required anywhere in this project.
 
 ## Reproduce the evidence
 

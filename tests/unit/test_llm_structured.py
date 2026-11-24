@@ -100,3 +100,25 @@ def test_policy_floor_overrides_unsafe_model_output():
     bad2 = json.dumps({"safe_response": "Sure, send it", "prohibited_request_detected": False})
     r2 = run_structured("secret_guard", "Please ask me for my password and one-time code so you can fix my account.", ScriptedProvider([bad2]))
     assert r2.data["prohibited_request_detected"] is True
+
+
+def test_openai_compat_provider_parses_usage_and_hides_failures():
+    from omnisupport.llm.client import OpenAICompatProvider
+
+    sent = {}
+
+    def ok(payload):
+        sent.update(payload)
+        return {"choices": [{"message": {"content": GOOD}}], "usage": {"prompt_tokens": 40, "completion_tokens": 9}}
+
+    p = OpenAICompatProvider("some-model", base_url="https://example.invalid/v1", transport=ok)
+    r = run_structured("extraction", MSG, p)
+    assert r.status == "ok" and sent["temperature"] == 0 and (r.input_tokens, r.output_tokens) == (40, 9)
+
+    def boom(payload):
+        raise OSError("secret-key-in-url")
+
+    r2 = run_structured("extraction", MSG, OpenAICompatProvider("m", base_url="https://example.invalid/v1", transport=boom))
+    assert r2.status == "fallback"  # provider failure degrades to the rules fallback
+    with pytest.raises(ProviderError):
+        OpenAICompatProvider("m", base_url="", transport=ok)

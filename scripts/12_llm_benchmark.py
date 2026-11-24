@@ -4,7 +4,7 @@ import json, sys, statistics as st, argparse
 import pandas as pd
 from omnisupport.config import ROOT, PROMPT_VERSION
 from omnisupport.llm.prompts import write_manifest
-from omnisupport.llm.client import RulesProvider, LocalHFProvider, estimate_cost_usd, LLMResponse
+from omnisupport.llm.client import RulesProvider, LocalHFProvider, OpenAICompatProvider, estimate_cost_usd, LLMResponse
 from omnisupport.llm.structured import run_structured
 from omnisupport.utils.runlog import write_json, set_seed
 from omnisupport.utils import plotting
@@ -35,7 +35,7 @@ def checks(r, res):
 
 rows = []
 for m in a.models.split(","):
-    prov = RulesProvider() if m == "rules" else LocalHFProvider(m)
+    prov = RulesProvider() if m == "rules" else OpenAICompatProvider(m[4:]) if m.startswith("api:") else LocalHFProvider(m)  # "api:<model>" uses LLM_BASE_URL/LLM_API_KEY
     if m != "rules": run_structured("extraction", "warm up ORD00000001 late", prov)  # exclude one-off warm-up from timings
     for r in reqs:
         res = run_structured(r["task"], r["text"], prov)

@@ -98,6 +98,44 @@ class AnthropicProvider(BaseProvider):
         return LLMResponse(text, getattr(u, "input_tokens", 0), getattr(u, "output_tokens", 0), dt, self.model)
 
 
+class OpenAICompatProvider(BaseProvider):
+    """Any OpenAI-compatible /chat/completions endpoint (Mistral, Groq, OpenRouter, DeepSeek, Gemini's compat API, ...).
+    Configure with LLM_BASE_URL, LLM_API_KEY and MODEL_NAME in the environment. Uses only the standard library.
+    Not exercised live in this repository's evidence (no key was available); covered by a stubbed-transport unit test."""
+    name = "openai_compat"
+
+    def __init__(self, model_name: str, base_url: str | None = None, api_key: str | None = None, transport=None, timeout_s: float = 60.0, max_tokens: int = 300):
+        self.model, self.timeout_s, self.max_tokens = model_name, timeout_s, max_tokens
+        self.base_url = (base_url or os.getenv("LLM_BASE_URL", "")).rstrip("/")
+        self._key = api_key or LLMSettings().api_key
+        self._transport = transport
+        if not self.base_url or not model_name:
+            raise ProviderError("set LLM_BASE_URL and MODEL_NAME for the openai_compat provider")
+        if transport is None and not self._key:
+            raise ProviderError("no API key configured (set LLM_API_KEY in the environment)")
+
+    def _post(self, payload: dict) -> dict:
+        if self._transport is not None:
+            return self._transport(payload)
+        import json as _json
+        import urllib.request
+
+        req = urllib.request.Request(self.base_url + "/chat/completions", data=_json.dumps(payload).encode(), method="POST",
+                                     headers={"Content-Type": "application/json", "Authorization": f"Bearer {self._key}"})
+        with urllib.request.urlopen(req, timeout=self.timeout_s) as r:  # nosec - URL comes from operator config
+            return _json.loads(r.read().decode())
+
+    def generate(self, messages, task, raw_message):
+        t0 = time.perf_counter()
+        try:
+            r = self._post({"model": self.model, "messages": messages, "temperature": 0, "max_tokens": self.max_tokens})
+            text = r["choices"][0]["message"]["content"] or ""
+        except Exception as e:  # never leak the key or response body
+            raise ProviderError(f"openai_compat request failed: {type(e).__name__}") from None
+        u = r.get("usage") or {}
+        return LLMResponse(text, int(u.get("prompt_tokens", 0)), int(u.get("completion_tokens", 0)), (time.perf_counter() - t0) * 1000, self.model)
+
+
 class ScriptedProvider(BaseProvider):
     """Test double: returns queued strings (malformed JSON, refusals, ...) to exercise validation/repair paths."""
     name, model = "scripted", "scripted"
@@ -115,6 +153,8 @@ def get_provider(settings: LLMSettings | None = None) -> BaseProvider:
     s = settings or LLMSettings()
     if s.provider == "anthropic":
         return AnthropicProvider(s.model_name, timeout_s=s.timeout_s)
+    if s.provider == "openai_compat":
+        return OpenAICompatProvider(s.model_name, timeout_s=s.timeout_s)
     if s.provider == "local_hf":
         return LocalHFProvider(s.model_name or "Qwen/Qwen2.5-0.5B-Instruct", s.max_new_tokens)
     return RulesProvider()
@@ -125,7 +165,7 @@ def estimate_cost_usd(resp: LLMResponse, provider: str) -> float:
     API models: tokens x env LLM_PRICE_IN_PER_MTOK / LLM_PRICE_OUT_PER_MTOK (no default - unknown prices are never invented)."""
     if provider == "local_hf":
         return resp.latency_ms / 1000 / 3600 * float(os.getenv("COMPUTE_USD_PER_HOUR", "0.34"))
-    if provider == "anthropic":
+    if provider in ("anthropic", "openai_compat"):
         pin, pout = os.getenv("LLM_PRICE_IN_PER_MTOK"), os.getenv("LLM_PRICE_OUT_PER_MTOK")
         if pin and pout:
             return resp.input_tokens / 1e6 * float(pin) + resp.output_tokens / 1e6 * float(pout)

@@ -1,32 +1,32 @@
 [
   {
-    "avg_latency_ms": 9822.1367,
-    "cost_usd": 0.0278,
+    "avg_latency_ms": 11700.23,
+    "cost_usd": 0.0332,
     "fallback_rate": 0.1333,
     "first_try_valid": 0.8667,
     "in_tok": 13349,
     "model": "Qwen/Qwen2.5-0.5B-Instruct",
     "n": 30,
     "out_tok": 1543,
-    "p95_latency_ms": 17524.065,
-    "quality_pass": 0.8333,
+    "p95_latency_ms": 19884.15,
+    "quality_pass": 0.9,
     "repaired": 0.0
   },
   {
-    "avg_latency_ms": 29499.9333,
-    "cost_usd": 0.0836,
+    "avg_latency_ms": 38194.4933,
+    "cost_usd": 0.1082,
     "fallback_rate": 0.0,
     "first_try_valid": 0.9333,
     "in_tok": 12258,
     "model": "Qwen/Qwen2.5-1.5B-Instruct",
     "n": 30,
     "out_tok": 1557,
-    "p95_latency_ms": 35477.42,
-    "quality_pass": 0.9,
+    "p95_latency_ms": 56202.61,
+    "quality_pass": 0.9333,
     "repaired": 0.0667
   },
   {
-    "avg_latency_ms": 0.5067,
+    "avg_latency_ms": 0.59,
     "cost_usd": 0.0,
     "fallback_rate": 0.0,
     "first_try_valid": 1.0,
@@ -34,7 +34,7 @@
     "model": "rules-v1",
     "n": 30,
     "out_tok": 0,
-    "p95_latency_ms": 0.72,
+    "p95_latency_ms": 0.755,
     "quality_pass": 0.8333,
     "repaired": 0.0
   }

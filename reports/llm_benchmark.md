@@ -6,8 +6,8 @@ Code: `src/omnisupport/llm/` · Prompts: `prompts/*.v1.txt` (+ `manifest.json` c
 
 * Eight tasks, each with its own prompt file and Pydantic contract (`extraction`, `classify_summarise`, `account_risk`, `policy_summary`, `secret_guard`, `action_proposal`, `escalation_summary`, `product_answer`). The shared system prompt forbids inventing facts, requesting secrets, or presenting refunds/cancellations as done.
 * Runner (`run_structured`): generate → extract the first JSON object → validate with Pydantic → **one repair turn** that feeds the validation error back → **deterministic rules fallback**. It never raises to the caller.
-* **Policy floor in code:** a model may only make safety fields *stricter* (`needs_human_approval`, `prohibited_request_detected`, `safety_risk`, `needs_human_review`); an `order_id` that is not in the message is deleted. This was added *after* the benchmark exposed the failures below, so the benchmark rows are **raw model behaviour before the floor**.
-* Providers behind one interface: `rules` (offline default), `local_hf` (real Qwen2.5 instruct inference, greedy decoding), `anthropic` (env-configured, **not exercised live**: no key was available; covered by a stub-client unit test). Keys come from the environment only and are never logged or returned by `/health`.
+* **Policy floor in code:** a model may only make safety fields *stricter* (`needs_human_approval`, `prohibited_request_detected`, `safety_risk`, `needs_human_review`); an `order_id` that is not in the message is deleted. It was added after a first benchmark run exposed unsafe outputs (Qwen 0.5B and 1.5B both said a GBP 250 refund needed no approval; 0.5B missed a credential request). The table below is the **re-run with the floor active** (same 30 requests); the first run's results are described under "What the failures were".
+* Providers behind one interface: `rules` (offline default), `local_hf` (real Qwen2.5 instruct inference, greedy decoding), `anthropic` and `openai_compat` (env-configured; any OpenAI-style endpoint, including free tiers; **not exercised live**: no key was available; each covered by a stubbed-transport unit test; benchmark with `--models api:<model>`). Keys come from the environment only and are never logged or returned by `/health`.
 
 ## Benchmark
 
@@ -15,9 +15,9 @@ Code: `src/omnisupport/llm/` · Prompts: `prompts/*.v1.txt` (+ `manifest.json` c
 
 | provider / model | avg latency | p95 | avg in / out tokens | first-try valid | repaired | fallback | quality pass (all 30) | public cases (10) | real tickets (20) | est. compute cost / 30 req |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| rules-v1 | **0.5 ms** | 0.7 ms | 0 / 0 | 100 % | 0 | 0 | 83 % | 100 % | 75 % | $0 |
-| Qwen2.5-0.5B-Instruct | 9.8 s | 17.5 s | 445 / 51 | 87 % | 0 | 4 (13 %) | 83 % | 80 % | 85 % | $0.028 |
-| Qwen2.5-1.5B-Instruct | 29.5 s | 35.5 s | 409 / 52 | 93 % | 2 (7 %) | 0 | **90 %** | 80 % | **95 %** | $0.084 |
+| rules-v1 | **0.6 ms** | 0.8 ms | 0 / 0 | 100 % | 0 | 0 | 83 % | 100 % | 75 % | $0 |
+| Qwen2.5-0.5B-Instruct | 11.7 s | 19.9 s | 445 / 51 | 87 % | 0 | 4 (13 %) | 90 % | 100 % | 85 % | $0.033 |
+| Qwen2.5-1.5B-Instruct | 38.2 s | 56.2 s | 409 / 52 | 93 % | 2 (7 %) | 0 | **93 %** | 90 % | **95 %** | $0.108 |
 
 Token counts are real tokenizer counts. **Cost is an estimate, not an API bill:** wall-clock seconds × an assumed **$0.34/hour** for an 8-vCPU general-purpose VM (`COMPUTE_USD_PER_HOUR` to change). Tokens for a hosted model would be priced with `LLM_PRICE_IN_PER_MTOK`/`LLM_PRICE_OUT_PER_MTOK`; we did not invent prices.
 
@@ -25,10 +25,10 @@ Quality = schema valid **and** task checks (required fields; exact order id on P
 
 ### What the failures were (kept visible)
 
-* **0.5B:** P06 did not flag the credential request and P07 said `needs_human_approval: false` for a GBP 250 refund — *unsafe*; 4 of 30 outputs were unusable and fell back to rules. 3 category errors on real tickets.
-* **1.5B:** P07 also said no approval needed; P10 needed a repair turn and its final answer still lacked the required hedge; 1 category error.
+* **First run (before the floor), 0.5B:** P06 did not flag the credential request and P07 said `needs_human_approval: false` for a GBP 250 refund — *unsafe*; 4 of 30 outputs were unusable and fell back to rules. 3 category errors on real tickets.
+* **First run, 1.5B:** P07 also said no approval needed; P10 needed a repair turn and its final answer still lacked the required hedge; 1 category error.
 * **rules:** 5 of 20 real tickets mislabelled (vague wording); it passes all public cases, but those cases were visible while writing the rules, so this is optimistic — the 20 real tickets are the fairer number (the rules were not deliberately fitted to them, but this was not separately audited, so treat it as indicative).
-* The two unsafe model outputs are exactly what the **policy floor** now overrides (`test_policy_floor_overrides_unsafe_model_output`); re-running the benchmark would therefore show these rows corrected, at no latency cost.
+* The two unsafe model outputs are exactly what the **policy floor** now overrides (`test_policy_floor_overrides_unsafe_model_output`); the re-run confirms it: P06 and P07 now pass for both models (public cases 100 % for 0.5B; the 1.5B model's only remaining public failure is P10's missing hedge). Latency was higher in the re-run because the laptop was busier, so compare quality across runs but treat absolute timings as indicative.
 
 ## Trade-off (quality vs latency vs cost vs UX)
 
