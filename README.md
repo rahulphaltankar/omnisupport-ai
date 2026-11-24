@@ -108,3 +108,8 @@ Prediction is defined at ticket creation (T0), and fields that only exist after 
 * The 20 % partial-refund rule in the agent is an assumed placeholder that needs business confirmation.
 * The Docker image was built and smoke-tested only in hosted CI, not locally.
 * Fairness checks cover the recorded attributes only; small subgroups have wide intervals.
+
+## Run the benchmark against a free hosted model (Mistral)
+
+1. Create a free account at https://console.mistral.ai, choose the free "Experiment" plan, and create an API key under "API keys".
+2. In PowerShell, from the repository root: `powershell -ExecutionPolicy Bypass -File scripts\run_mistral_benchmark.ps1`. It asks for the key (hidden), runs the 30 requests and writes `artifacts\llm_benchmark_mistral\`.

@@ -1,6 +1,6 @@
 """LLM benchmark: 10 public prompt cases + 20 real tickets, per provider/model. Writes artifacts/llm_benchmark + reports/llm_benchmark.md."""
 from __future__ import annotations
-import json, sys, statistics as st, argparse
+import time, json, sys, statistics as st, argparse
 import pandas as pd
 from omnisupport.config import ROOT, PROMPT_VERSION
 from omnisupport.llm.prompts import write_manifest
@@ -9,9 +9,9 @@ from omnisupport.llm.structured import run_structured
 from omnisupport.utils.runlog import write_json, set_seed
 from omnisupport.utils import plotting
 
-p = argparse.ArgumentParser(); p.add_argument("--models", default="rules,Qwen/Qwen2.5-0.5B-Instruct,Qwen/Qwen2.5-1.5B-Instruct"); a = p.parse_args()
+p = argparse.ArgumentParser(); p.add_argument("--models", default="rules,Qwen/Qwen2.5-0.5B-Instruct,Qwen/Qwen2.5-1.5B-Instruct"); p.add_argument("--out", default="llm_benchmark"); p.add_argument("--sleep", type=float, default=0.0); a = p.parse_args()
 set_seed(42); write_manifest()
-OUT = ROOT / "artifacts" / "llm_benchmark"; OUT.mkdir(parents=True, exist_ok=True)
+OUT = ROOT / "artifacts" / a.out; OUT.mkdir(parents=True, exist_ok=True)
 cases = json.loads((ROOT / "evaluation" / "prompt_test_cases.json").read_text(encoding="utf-8"))
 tmap = json.loads((ROOT / "prompts" / "case_task_map.json").read_text())
 tick = pd.read_parquet(ROOT / "data" / "subsets" / "transformer_finetune_10000.parquet")
@@ -39,6 +39,7 @@ for m in a.models.split(","):
     if m != "rules": run_structured("extraction", "warm up ORD00000001 late", prov)  # exclude one-off warm-up from timings
     for r in reqs:
         res = run_structured(r["task"], r["text"], prov)
+        if a.sleep: time.sleep(a.sleep)  # stay inside free-tier rate limits
         ck = checks(r, res)
         cost = estimate_cost_usd(LLMResponse("", res.input_tokens, res.output_tokens, res.latency_ms), prov.name)
         rows.append(dict(model=prov.model, provider=prov.name, id=r["id"], task=r["task"], status=res.status, attempts=res.attempts, first_attempt_valid=res.first_attempt_valid, latency_ms=round(res.latency_ms, 1),
